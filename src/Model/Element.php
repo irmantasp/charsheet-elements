@@ -127,15 +127,6 @@ abstract class Element
      */
     public array $rules;
 
-    /**
-     * @Serializer\Type("array<App\Model\Element>")
-     * @Serializer\XmlList(inline=true, entry="element")
-     * @Serializer\SkipWhenEmpty
-     *
-     * @var Element[]
-     */
-    public array $elements;
-
     public ?IndexType $indexType;
 
 }

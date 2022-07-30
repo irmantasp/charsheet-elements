@@ -4,5 +4,5 @@ namespace App\Model;
 
 class Sources
 {
-    public $restricted;
+    public Restricted $restricted;
 }

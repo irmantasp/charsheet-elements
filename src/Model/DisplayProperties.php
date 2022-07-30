@@ -18,5 +18,5 @@ class DisplayProperties
 
     public int $level;
 
-    public $portrait;
+    public Portrait $portrait;
 }

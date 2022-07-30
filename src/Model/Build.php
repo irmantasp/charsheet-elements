@@ -5,21 +5,21 @@ namespace App\Model;
 class Build
 {
 
-    public $input;
+    public Input $input;
 
-    public $appearance;
+    public Appearance $appearance;
 
-    public $abilities;
+    public Abilities $abilities;
 
-    public $elements;
+    public Elements $elements;
 
-    public $defences;
+    public Defenses $defences;
 
-    public $companion;
+    public Companion $companion;
 
-    public $equipment;
+    public Equipment $equipment;
 
-    public $sum;
+    public Sum $sum;
 
-    public $magic;
+    public Magic $magic;
 }
