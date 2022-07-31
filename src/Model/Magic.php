@@ -12,5 +12,5 @@ class Magic
     /**
      * @var MagicSpellcasting[]
      */
-    public array $spellcasting;
+//    public array $spellcasting;
 }

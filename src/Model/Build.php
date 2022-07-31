@@ -17,7 +17,7 @@ class Build
 
     public Companion $companion;
 
-    public Equipment $equipment;
+//    public Equipment $equipment;
 
     public Sum $sum;
 

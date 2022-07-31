@@ -30,11 +30,11 @@ class Character
      * @Serializer\Type("App\Model\DisplayProperties")
      */
     public DisplayProperties $displayProperties;
-//
-//    /**
-//     * @Serializer\Type("App\Model\Build")
-//     */
-//    public Build $build;
+
+    /**
+     * @Serializer\Type("App\Model\Build")
+     */
+    public Build $build;
 
     /**
      * @Serializer\Type("App\Model\Sources")
