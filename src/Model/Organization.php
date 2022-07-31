@@ -4,9 +4,9 @@ namespace App\Model;
 
 class Organization
 {
-    public $name;
+    public string $name;
 
-    public $symbol;
+    public string $symbol;
 
     public string $allies;
 

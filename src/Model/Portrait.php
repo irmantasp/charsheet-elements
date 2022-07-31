@@ -5,7 +5,7 @@ namespace App\Model;
 class Portrait
 {
 
-    public $companion;
+    public string $companion;
 
     public string $local;
 

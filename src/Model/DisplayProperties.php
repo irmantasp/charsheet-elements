@@ -12,7 +12,7 @@ class DisplayProperties
 
     public string $class;
 
-    public $archetype;
+    public string $archetype;
 
     public string $background;
 
