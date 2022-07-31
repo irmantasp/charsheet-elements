@@ -47,7 +47,7 @@ use JMS\Serializer\Annotation\XmlDiscriminator;
  * })
  * @XmlDiscriminator(attribute=true)
  */
-abstract class Element
+abstract class Element implements ElementInterface
 {
 
     /**

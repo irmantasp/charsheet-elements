@@ -17,4 +17,12 @@ class BuildElement
     public string $checksum;
 
     public string $registered;
+
+    public bool $multiclass;
+
+    public string $class;
+
+    public array $elements;
+
+    public ElementInterface $element;
 }
