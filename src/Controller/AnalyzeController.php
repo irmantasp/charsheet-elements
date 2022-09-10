@@ -72,7 +72,7 @@ class AnalyzeController extends AbstractSerializerController
                 $attributeValues = NestedArray::getValue($data, $attributePath);
                 if (!in_array($attribute->nodeValue, $attributeValues, true)) {
                     $attributeValues[] = $attribute->nodeValue;
-                    NestedArray::setValue($data, $attributePath, $attributeValues);
+                    NestedArray::setValue($data, $attributePath, array_unique($attributeValues));
                 }
             }
         }
@@ -85,7 +85,7 @@ class AnalyzeController extends AbstractSerializerController
             }
         }
 
-        if ($node->nodeName === 'description') {
+        if (in_array($node->nodeName, ['description', 'set', 'prerequisite', 'requirements', 'extend', 'supports'], true)) {
             $valuePath = array_merge($nodePath, ['value']);
             if (!NestedArray::keyExists($data, $valuePath)) {
                 NestedArray::setValue($data, $valuePath, []);
@@ -95,7 +95,7 @@ class AnalyzeController extends AbstractSerializerController
             $value = trim(preg_replace(['/\t+/', '/\n{2,}/'], '', $node->textContent));
             if (!empty($value) || !in_array($value, $valuePath, true)) {
                 $values[] = $value;
-                NestedArray::setValue($data, $valuePath, $values);
+                NestedArray::setValue($data, $valuePath, array_unique($values));
             }
         }
     }
