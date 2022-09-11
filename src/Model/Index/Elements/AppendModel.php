@@ -2,6 +2,7 @@
 
 namespace App\Model\Index\Elements;
 
+use App\Model\Index\Elements\Append\RulesModel;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -9,5 +10,26 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class AppendModel
 {
+    /**
+     * @var string
+     *
+     * @Serializer\Type("string")
+     * @Serializer\XmlAttribute()
+     */
+    public string $id;
 
+    /**
+     * @var RulesModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Append\RulesModel")
+     */
+    public RulesModel $rules;
+
+    /**
+     * @var string
+     *
+     * @Serializer\Type("string")
+     * @Serializer\SkipWhenEmpty()
+     */
+    public string $supports;
 }
