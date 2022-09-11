@@ -48,8 +48,6 @@ class AnalyzeController extends AbstractSerializerController
             }
         }
 
-        dump($elements, $characters);
-
         return $this->render('example/index.html.twig', ['controller_name' => static::class . '::' . debug_backtrace()[0]['function']]);
     }
 
