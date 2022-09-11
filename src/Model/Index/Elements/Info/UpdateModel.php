@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Source\Index\Info;
+namespace App\Model\Index\Elements\Info;
 
 use App\Model\Source\Index\Info\Update\FileModel;
 use JMS\Serializer\Annotation as Serializer;

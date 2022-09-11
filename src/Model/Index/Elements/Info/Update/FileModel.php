@@ -1,25 +1,26 @@
 <?php
 
-namespace App\Model\Source\Index\Info;
+namespace App\Model\Index\Elements\Info\Update;
 
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * @Serializer\XmlRoot("name")
+ * @Serializer\XmlRoot("file")
  */
-class NameModel
+class FileModel
 {
 
     /**
      * @var string
      *
      * @Serializer\Type("string")
-     * @Serializer\XmlValue()
+     * @Serializer\XmlAttribute()
      */
-    public string $value;
+    public string $name;
 
     /**
      * @var string
+     *
      * @Serializer\Type("string")
      * @Serializer\XmlAttribute()
      */

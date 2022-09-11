@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Model\Source\Index\Info;
+namespace App\Model\Index\Elements\Info;
 
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * @Serializer\XmlRoot("name")
+ * @Serializer\XmlRoot("author")
  */
-class NameModel
+class AuthorModel
 {
 
     /**

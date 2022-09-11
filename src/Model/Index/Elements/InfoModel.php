@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model\Source\Index;
+namespace App\Model\Index\Elements;
 
-use App\Model\Source\Index\Info\AuthorModel;
-use App\Model\Source\Index\Info\NameModel;
-use App\Model\Source\Index\Info\UpdateModel;
+use App\Model\Index\Elements\Info\AuthorModel;
+use App\Model\Index\Elements\Info\NameModel;
+use App\Model\Index\Elements\Info\UpdateModel;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -15,7 +15,7 @@ class InfoModel
     /**
      * @var AuthorModel
      *
-     * @Serializer\Type("App\Model\Source\Index\Info\AuthorModel")
+     * @Serializer\Type("App\Model\Index\Elements\Info\AuthorModel")
      */
     public AuthorModel $author;
 
@@ -30,14 +30,14 @@ class InfoModel
     /**
      * @var NameModel
      *
-     * @Serializer\Type("App\Model\Source\Index\Info\NameModel")
+     * @Serializer\Type("App\Model\Index\Elements\Info\NameModel")
      */
     public NameModel $name;
 
     /**
      * @var UpdateModel
      *
-     * @Serializer\Type("App\Model\Source\Index\Info\UpdateModel")
+     * @Serializer\Type("App\Model\Index\Elements\Info\UpdateModel")
      */
     public UpdateModel $update;
 }

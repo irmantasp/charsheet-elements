@@ -4,6 +4,9 @@ namespace App\Model\Source\Index\Info;
 
 use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * @Serializer\XmlRoot("author")
+ */
 class AuthorModel
 {
 

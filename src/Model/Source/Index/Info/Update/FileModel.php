@@ -4,6 +4,9 @@ namespace App\Model\Source\Index\Info\Update;
 
 use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * @Serializer\XmlRoot("file")
+ */
 class FileModel
 {
 

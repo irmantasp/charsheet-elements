@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\Index\ElementsModel;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,9 +14,9 @@ class IndexController extends AbstractSerializerController
     final public function list(): Response
     {
         $this->setWorkingDir('index');
-        $files = $this->fileProvider->getFilesContent($this->getFilesByExtension('index'));
+        $files = $this->fileProvider->getFilesContent($this->getFilesByExtension('xml'));
         $indexes = array_map(function ($content) {
-            return $this->deserialize($content, \stdClass::class, 'xml');
+            return $this->deserialize($content, ElementsModel::class, 'xml');
         }, $files);
 
         return $this->renderPlaceholder($indexes);
