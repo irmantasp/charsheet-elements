@@ -9,8 +9,6 @@ use JMS\Serializer\SerializerInterface;
 trait SerializerHelperTrait
 {
 
-    private SerializerInterface $serializer;
-
     final public function serialize($data, string $format, ?SerializationContext $context = null, ?string $type = null): string
     {
         return $this->serializer->serialize($data, $format, $context, $type);

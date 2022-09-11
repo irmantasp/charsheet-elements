@@ -48,7 +48,7 @@ class AnalyzeController extends AbstractSerializerController
             }
         }
 
-        return $this->render('example/index.html.twig', ['controller_name' => static::class . '::' . debug_backtrace()[0]['function']]);
+        return $this->renderPlaceholder();
     }
 
     private function fillNodeData(DOMNode $node, array $path, array &$data): void {
