@@ -32,7 +32,7 @@ abstract class AbstractSerializerController extends AbstractController
         }
 
         return $this->render('example/index.html.twig', [
-                'controller_name' => static::class . '::' . debug_backtrace()[0]['function']
+                'controller_name' => static::class . '::' . debug_backtrace()[1]['function']
             ]
         );
     }
