@@ -18,37 +18,30 @@ class AnalyzeController extends AbstractSerializerController
      */
     final public function list(): Response
     {
-        $this->setWorkingDir('index');
-        $files = $this->fileProvider->getFilesContentByFile($this->getFilesByExtension('xml'));
-        $elements = [];
+        $sources = $elements = $characters = [];
+
+        $this->analyse('index', 'index', '/index', $sources);
+        $this->analyse('index', 'xml', '/elements', $elements);
+        $this->analyse('characters', 'dnd5e', '/character', $characters);
+
+        return $this->renderPlaceholder($sources, $elements, $characters);
+    }
+
+    private function analyse(string $dir, string $fileExtension, string $expression, array &$results): void
+    {
+        $this->setWorkingDir($dir);
+        $files = $this->fileProvider->getFilesContentByFile($this->getFilesByExtension($fileExtension));
         foreach ($files as $content) {
             $document = new DOMDocument();
             $document->loadXML($content);
             $xpath = new DOMXPath($document);
             /** @var DOMNodeList $nodeList */
-            $nodeList = $xpath->query('/elements');
+            $nodeList = $xpath->query($expression);
             /** @var DOMNode $node */
             foreach ($nodeList as $node) {
-                $this->fillNodeData($node, [], $elements);
+                $this->fillNodeData($node, [], $results);
             }
         }
-
-        $this->setWorkingDir('characters');
-        $files = $this->fileProvider->getFilesContentByFile($this->getFilesByExtension('dnd5e'));
-        $characters = [];
-        foreach ($files as $content) {
-            $document = new DOMDocument();
-            $document->loadXML($content);
-            $xpath = new DOMXPath($document);
-            /** @var DOMNodeList $nodeList */
-            $nodeList = $xpath->query('/character');
-            /** @var DOMNode $node */
-            foreach ($nodeList as $node) {
-                $this->fillNodeData($node, [], $characters);
-            }
-        }
-
-        return $this->renderPlaceholder($elements, $characters);
     }
 
     private function fillNodeData(DOMNode $node, array $path, array &$data): void {
