@@ -48,7 +48,7 @@ class AnalyzeController extends AbstractSerializerController
             }
         }
 
-        return $this->renderPlaceholder();
+        return $this->renderPlaceholder($elements, $characters);
     }
 
     private function fillNodeData(DOMNode $node, array $path, array &$data): void {

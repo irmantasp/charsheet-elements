@@ -19,6 +19,6 @@ class SourceController extends AbstractSerializerController
             return $this->deserialize($content, \stdClass::class, 'xml');
         }, $files);
 
-        return $this->render('example/index.html.twig', ['controller_name' => static::class . '::' . debug_backtrace()[0]['function']]);
+        return $this->renderPlaceholder($sources);
     }
 }

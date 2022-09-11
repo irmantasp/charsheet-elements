@@ -19,6 +19,6 @@ class ElementController extends AbstractSerializerController
             return $this->deserialize($content, \stdClass::class, 'xml');
         }, $files);
 
-        return $this->renderPlaceholder();
+        return $this->renderPlaceholder($indexes);
     }
 }
