@@ -76,7 +76,17 @@ class AnalyzeController extends AbstractSerializerController
             }
         }
 
-        if (in_array($node->nodeName, ['description', 'set', 'prerequisite', 'requirements', 'extend', 'supports'], true)) {
+        $properties = [
+            'author',
+            'description',
+            'extend',
+            'name',
+            'prerequisite',
+            'requirements',
+            'set',
+            'supports',
+        ];
+        if (in_array($node->nodeName, $properties, true)) {
             $valuePath = array_merge($nodePath, ['value']);
             if (!NestedArray::keyExists($data, $valuePath)) {
                 NestedArray::setValue($data, $valuePath, []);

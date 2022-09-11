@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Model\Source\Index\Info;
+
+use App\Model\Source\Index\Info\Update\FileModel;
+use JMS\Serializer\Annotation as Serializer;
+
+class UpdateModel
+{
+
+    /**
+     * @var string
+     *
+     * @Serializer\Type("string")
+     * @Serializer\XmlAttribute()
+     */
+    public string $version;
+
+
+    /**
+     * @var FileModel[]
+     *
+     * @Serializer\Type("array<App\Model\Source\Index\Info\Update\FileModel>")
+     * @Serializer\XmlList(inline=true, entry="file")
+     */
+    public array $files;
+}
