@@ -29,8 +29,7 @@ class AnalyzeController extends AbstractSerializerController
 
     private function analyse(string $dir, string $fileExtension, string $expression, array &$results): void
     {
-        $this->setWorkingDir($dir);
-        $files = $this->fileProvider->getFilesContentByFile($this->getFilesByExtension($fileExtension));
+        $files = $this->getFiles($dir, $fileExtension);
         foreach ($files as $content) {
             $document = new DOMDocument();
             $document->loadXML($content);

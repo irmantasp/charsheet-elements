@@ -121,7 +121,8 @@ class ElementModel
     /**
      * @var ExtractModel
      *
-     * @Serializer\Type(App\Model\Index\Elements\Element\ExtractModel)
+     * @Serializer\Type("App\Model\Index\Elements\Element\ExtractModel")
+     * @Serializer\SkipWhenEmpty()
      */
     public ExtractModel $extract;
 
@@ -129,6 +130,7 @@ class ElementModel
      * @var SettersModel
      *
      * @Serializer\Type("App\Model\Index\Elements\Element\SettersModel")
+     * @Serializer\SkipWhenEmpty()
      */
     public SettersModel $setter;
 }

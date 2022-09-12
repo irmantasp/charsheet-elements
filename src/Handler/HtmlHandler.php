@@ -36,7 +36,6 @@ class HtmlHandler implements SubscribingHandlerInterface
 
     final public function serializeHTML(SerializationVisitorInterface $visitor, string $data, array $type, SerializationContext $context): \SimpleXMLElement
     {
-        $a = 1;
     }
 
     final public function deserializeHTML(DeserializationVisitorInterface $visitor, \SimpleXMLElement $element, array $type, DeserializationContext $context): ?string
@@ -46,6 +45,11 @@ class HtmlHandler implements SubscribingHandlerInterface
             return null;
         }
 
-        return $content->asXML();
+        $html = [];
+        foreach ($content as $line) {
+            $html[] = $line->asXML();
+        }
+
+        return implode('', $html);
     }
 }

@@ -11,11 +11,8 @@ class CharacterController extends AbstractSerializerController
      * @Route("/characters", name="characters_list")
      */
     final public function list(): Response {
-        $this->setWorkingDir('characters');
-        $files = $this->fileProvider->getFilesContent($this->getFilesByExtension('dnd5e'));
-        $characters = array_map(function ($content) {
-            return $this->deserialize($content, \stdClass::class, 'xml');
-        }, $files);
+        $files = $this->getFiles('characters', 'dnd5e');
+        $characters = $this->getContent($files, \stdClass::class, 'xml');
 
         return $this->renderPlaceholder($characters);
     }

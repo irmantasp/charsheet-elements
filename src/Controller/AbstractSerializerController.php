@@ -36,4 +36,15 @@ abstract class AbstractSerializerController extends AbstractController
             ]
         );
     }
+
+    final public function getFiles(string $dir, string $fileExtension): array {
+        $this->setWorkingDir($dir);
+        return $this->fileProvider->getFilesContent($this->getFilesByExtension($fileExtension));
+    }
+
+    final public function getContent(array $files, string $type, string $format): array {
+        return array_map(function ($content) use ($type, $format) {
+            return $this->deserialize($content, $type, $format);
+        }, $files);
+    }
 }

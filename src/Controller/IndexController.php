@@ -13,13 +13,11 @@ class IndexController extends AbstractSerializerController
      */
     final public function list(): Response
     {
-        $this->setWorkingDir('index');
-        $files = $this->fileProvider->getFilesContent($this->getFilesByExtension('xml'));
-        $indexes = array_map(function ($content) {
-            return $this->deserialize($content, ElementsModel::class, 'xml');
-        }, $files);
-
         $info = $elements = $appends = [];
+
+        $files = $this->getFiles('index', 'xml');
+        $indexes = $this->getContent($files, ElementsModel::class, 'xml');
+
         foreach ($indexes as $index) {
             if (isset($index->info)) {
                 $info[] = $index->info;
@@ -33,7 +31,31 @@ class IndexController extends AbstractSerializerController
             }
         }
 
-        return $this->renderPlaceholder($indexes);
+        $races = $this->getByType('Race', $elements);
+        $classes = $this->getByType('Class', $elements);
+        $feats = $this->getByType('Feat', $elements);
+        $backgrounds = $this->getByType('Background', $elements);
+        $items = $this->getByType('Item', $elements);
+        $spells = $this->getByType('Spell', $elements);
+
+        return $this->renderPlaceholder(
+            $indexes,
+            $info,
+            $elements,
+            $appends,
+            $races,
+            $classes,
+            $feats,
+            $backgrounds,
+            $items,
+            $spells
+        );
+    }
+
+    private function getByType(string $type, array $elements): array {
+        return array_filter($elements, static function ($element) use ($type) {
+            return $element->type === $type;
+        });
     }
 
 }

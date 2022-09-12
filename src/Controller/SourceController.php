@@ -14,12 +14,8 @@ class SourceController extends AbstractSerializerController
      */
     final public function list(): Response
     {
-        $this->setWorkingDir('index');
-        $files = $this->fileProvider->getFilesContent($this->getFilesByExtension('index'));
-        /** @var IndexModel[] $sources */
-        $sources = array_map(function ($content) {
-            return $this->deserialize($content, IndexModel::class, 'xml');
-        }, $files);
+        $files = $this->getFiles('index', 'index');
+        $sources = $this->getContent($files, IndexModel::class, 'xml');
 
         return $this->renderPlaceholder($sources);
     }
