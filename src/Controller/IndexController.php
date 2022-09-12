@@ -13,30 +13,11 @@ class IndexController extends AbstractSerializerController
      */
     final public function list(): Response
     {
-        $info = $elements = $appends = [];
-
         $files = $this->getFiles('index', 'xml');
         $indexes = $this->getContent($files, ElementsModel::class, 'xml');
-
-        foreach ($indexes as $index) {
-            if (isset($index->info)) {
-                $info[] = $index->info;
-            }
-            if (!empty($index->elements)) {
-                array_push($elements, ...$index->elements);
-            }
-
-            if (!empty($index->append)) {
-                array_push($appends, ...$index->append);
-            }
-        }
-
-        $races = $this->getByType('Race', $elements);
-        $classes = $this->getByType('Class', $elements);
-        $feats = $this->getByType('Feat', $elements);
-        $backgrounds = $this->getByType('Background', $elements);
-        $items = $this->getByType('Item', $elements);
-        $spells = $this->getByType('Spell', $elements);
+        [$info, $elements, $appends] = $this->splitData($indexes);
+        $types = ['Race', 'Class', 'Feat', 'Background', 'Item', 'Spell', 'Source'];
+        [$races, $classes, $feats, $backgrounds, $items, $spells] = $this->splitByType($types, $elements);
 
         return $this->renderPlaceholder(
             $indexes,
@@ -50,6 +31,37 @@ class IndexController extends AbstractSerializerController
             $items,
             $spells
         );
+    }
+
+    private function splitData(array $indexes): array {
+        $info = $elements = $appends = $data = [];
+        foreach ($indexes as $index) {
+            if (isset($index->info)) {
+                $info[] = $index->info;
+            }
+            if (!empty($index->elements)) {
+                array_push($elements, ...$index->elements);
+            }
+            if (!empty($index->append)) {
+                array_push($appends, ...$index->append);
+            }
+        }
+
+        $data['info'] = $info;
+        foreach ($elements as $element) {
+            $data['elements'][$element->id] = $element;
+        }
+        foreach ($appends as $append) {
+            $data['appends'][$append->id] = $append;
+        }
+
+        return array_values($data);
+    }
+
+    private function splitByType(array $types, array $elements): array {
+        return array_map(function ($type) use ($elements) {
+            return $this->getByType($type, $elements);
+        }, $types);
     }
 
     private function getByType(string $type, array $elements): array {
