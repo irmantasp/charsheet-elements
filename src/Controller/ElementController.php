@@ -28,7 +28,11 @@ class ElementController extends AbstractSerializerController
         }
 
         $elementsWithProperty = array_filter($elements, static function ($element) {
-            return isset($element->spellcasting);
+            return isset($element->sheet);
+        });
+
+        $element = array_filter($elements, static function ($element) {
+           return $element->id === 'ID_RACIAL_TRAIT_DROW_MAGIC';
         });
 
         return $this->renderPlaceholder($elements);

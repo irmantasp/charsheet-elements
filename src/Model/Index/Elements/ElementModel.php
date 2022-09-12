@@ -3,6 +3,7 @@
 namespace App\Model\Index\Elements;
 
 use App\Model\Index\Elements\Element\CompendiumModel;
+use App\Model\Index\Elements\Element\SheetModel;
 use App\Model\Index\Elements\Element\SpellcastingModel;
 use JMS\Serializer\Annotation as Serializer;
 
@@ -57,7 +58,12 @@ class ElementModel
      */
     public string $description;
 
-    public \stdClass $sheet;
+    /**
+     * @var SheetModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Element\SheetModel")
+     */
+    public SheetModel $sheet;
 
     public \stdClass $rules;
 
