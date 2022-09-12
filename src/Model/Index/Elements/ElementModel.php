@@ -3,6 +3,7 @@
 namespace App\Model\Index\Elements;
 
 use App\Model\Index\Elements\Element\CompendiumModel;
+use App\Model\Index\Elements\Element\MulticlassModel;
 use App\Model\Index\Elements\Element\RulesModel;
 use App\Model\Index\Elements\Element\SettersModel;
 use App\Model\Index\Elements\Element\SheetModel;
@@ -109,7 +110,12 @@ class ElementModel
      */
     public SpellcastingModel $spellcasting;
 
-    public \stdClass $multiclass;
+    /**
+     * @var MulticlassModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Element\MulticlassModel")
+     */
+    public MulticlassModel $multiclass;
 
     public \stdClass $extract;
 
