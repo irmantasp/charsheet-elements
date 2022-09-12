@@ -2,7 +2,10 @@
 
 namespace App\EventSubscriber;
 
-use App\Model\Rule;
+use App\Model\Index\Elements\Element\Rules\GrantModel;
+use App\Model\Index\Elements\Element\Rules\RuleModel;
+use App\Model\Index\Elements\Element\Rules\SelectModel;
+use App\Model\Index\Elements\Element\Rules\StatisticsModel;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\PreDeserializeEvent;
 
@@ -16,9 +19,9 @@ class RuleDeserializationEventSubscriber implements EventSubscriberInterface
     PUBLIC const RULE_TYPE_STAT = 'stat';
 
     public array $mapping = [
-        self::RULE_TYPE_GRANT => Rule\Grant::class,
-        self::RULE_TYPE_SELECT => Rule\Select::class,
-        self::RULE_TYPE_STAT => Rule\Stat::class,
+        self::RULE_TYPE_GRANT => GrantModel::class,
+        self::RULE_TYPE_SELECT => SelectModel::class,
+        self::RULE_TYPE_STAT => StatisticsModel::class,
     ];
 
     /**
@@ -30,7 +33,7 @@ class RuleDeserializationEventSubscriber implements EventSubscriberInterface
             [
                 'event' => 'serializer.pre_deserialize',
                 'method' => 'onPreDeserialize',
-                'class' => Rule::class,
+                'class' => RuleModel::class,
                 'format' => 'xml',
             ],
         ];
