@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Debug;
 
+use App\Controller\AbstractSerializerController;
 use App\Model\Index\ElementsModel;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractSerializerController
 {
     /**
-     * @Route("/indexes", name="index_list")
+     * @Route("/debug/indexes", name="debug_index_list")
      */
     final public function list(): Response
     {
@@ -17,7 +18,7 @@ class IndexController extends AbstractSerializerController
         $indexes = $this->getContent($files, ElementsModel::class, 'xml');
         [$info, $elements, $appends] = $this->splitData($indexes);
         $types = ['Race', 'Class', 'Feat', 'Background', 'Item', 'Spell', 'Source'];
-        [$races, $classes, $feats, $backgrounds, $items, $spells] = $this->splitByType($types, $elements);
+        [$races, $classes, $feats, $backgrounds, $items, $spells, $sources] = $this->splitByType($types, $elements);
 
         return $this->renderPlaceholder(
             $indexes,
@@ -29,7 +30,8 @@ class IndexController extends AbstractSerializerController
             $feats,
             $backgrounds,
             $items,
-            $spells
+            $spells,
+            $sources
         );
     }
 

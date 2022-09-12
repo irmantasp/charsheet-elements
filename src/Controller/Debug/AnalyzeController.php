@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Debug;
 
+use App\Controller\AbstractSerializerController;
 use App\Utility\NestedArray;
 use DOMDocument;
 use DOMNode;
@@ -14,7 +15,7 @@ class AnalyzeController extends AbstractSerializerController
 {
 
     /**
-     * @Route("/analysis", name="analysis_results_list")
+     * @Route("/debug/analysis", name="debug_analysis_results_list")
      */
     final public function list(): Response
     {

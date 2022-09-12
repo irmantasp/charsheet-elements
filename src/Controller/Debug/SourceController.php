@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Debug;
 
+use App\Controller\AbstractSerializerController;
 use App\Model\Source\IndexModel;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,7 +11,7 @@ class SourceController extends AbstractSerializerController
 {
 
     /**
-     * @Route("/sources", name="source_list")
+     * @Route("/debug/sources", name="debug_source_list")
      */
     final public function list(): Response
     {
