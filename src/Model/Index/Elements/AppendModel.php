@@ -2,7 +2,7 @@
 
 namespace App\Model\Index\Elements;
 
-use App\Model\Index\Elements\Append\RulesModel;
+use App\Model\Index\Elements\Element\RulesModel;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -21,7 +21,7 @@ class AppendModel
     /**
      * @var RulesModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Append\RulesModel")
+     * @Serializer\Type("App\Model\Index\Elements\Element\RulesModel")
      */
     public RulesModel $rules;
 

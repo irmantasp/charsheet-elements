@@ -85,6 +85,7 @@ class AnalyzeController extends AbstractSerializerController
             'requirements',
             'set',
             'supports',
+            'item'
         ];
         if (in_array($node->nodeName, $properties, true)) {
             $valuePath = array_merge($nodePath, ['value']);

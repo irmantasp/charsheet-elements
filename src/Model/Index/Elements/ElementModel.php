@@ -3,6 +3,7 @@
 namespace App\Model\Index\Elements;
 
 use App\Model\Index\Elements\Element\CompendiumModel;
+use App\Model\Index\Elements\Element\ExtractModel;
 use App\Model\Index\Elements\Element\MulticlassModel;
 use App\Model\Index\Elements\Element\RulesModel;
 use App\Model\Index\Elements\Element\SettersModel;
@@ -117,7 +118,17 @@ class ElementModel
      */
     public MulticlassModel $multiclass;
 
-    public \stdClass $extract;
+    /**
+     * @var ExtractModel
+     *
+     * @Serializer\Type(App\Model\Index\Elements\Element\ExtractModel)
+     */
+    public ExtractModel $extract;
 
-    public \stdClass $setter;
+    /**
+     * @var SettersModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Element\SettersModel")
+     */
+    public SettersModel $setter;
 }
