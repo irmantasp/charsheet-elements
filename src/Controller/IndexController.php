@@ -19,6 +19,20 @@ class IndexController extends AbstractSerializerController
             return $this->deserialize($content, ElementsModel::class, 'xml');
         }, $files);
 
+        $info = $elements = $appends = [];
+        foreach ($indexes as $index) {
+            if (isset($index->info)) {
+                $info[] = $index->info;
+            }
+            if (!empty($index->elements)) {
+                array_push($elements, ...$index->elements);
+            }
+
+            if (!empty($index->append)) {
+                array_push($appends, ...$index->append);
+            }
+        }
+
         return $this->renderPlaceholder($indexes);
     }
 
