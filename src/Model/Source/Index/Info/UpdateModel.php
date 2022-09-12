@@ -27,4 +27,40 @@ class UpdateModel
      * @Serializer\XmlList(inline=true, entry="file")
      */
     public array $files;
+
+    /**
+     * @return string
+     */
+    final public function getVersion(): string
+    {
+        return $this->version;
+    }
+
+    /**
+     * @param string $version
+     * @return UpdateModel
+     */
+    final public function setVersion(string $version): UpdateModel
+    {
+        $this->version = $version;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    final public function getFiles(): array
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param array $files
+     * @return UpdateModel
+     */
+    final public function setFiles(array $files): UpdateModel
+    {
+        $this->files = $files;
+        return $this;
+    }
 }

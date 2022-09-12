@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Available sources list{% endblock %}
+{% block body %}
+    {% for source in sources %}
+        <div>{{ source.info.name.value }}</div>
+    {% endfor %}
+{% endblock %}

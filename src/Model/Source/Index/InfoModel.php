@@ -4,6 +4,7 @@ namespace App\Model\Source\Index;
 
 use App\Model\Source\Index\Info\AuthorModel;
 use App\Model\Source\Index\Info\NameModel;
+use App\Model\Source\Index\Info\Update\FileModel;
 use App\Model\Source\Index\Info\UpdateModel;
 use JMS\Serializer\Annotation as Serializer;
 
@@ -40,4 +41,102 @@ class InfoModel
      * @Serializer\Type("App\Model\Source\Index\Info\UpdateModel")
      */
     public UpdateModel $update;
+
+    /**
+     * @var FileModel[]
+     *
+     * @Serializer\Type("array<App\Model\Source\Index\Info\Update\FileModel>")
+     * @Serializer\XmlList(inline=true, entry="file")
+     */
+    public array $files;
+
+    /**
+     * @return AuthorModel
+     */
+    final public function getAuthor(): AuthorModel
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param AuthorModel $author
+     * @return InfoModel
+     */
+    final public function setAuthor(AuthorModel $author): InfoModel
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    final public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $description
+     * @return InfoModel
+     */
+    final public function setDescription(?string $description): InfoModel
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * @return NameModel
+     */
+    final public function getName(): NameModel
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param NameModel $name
+     * @return InfoModel
+     */
+    final public function setName(NameModel $name): InfoModel
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return UpdateModel
+     */
+    final public function getUpdate(): UpdateModel
+    {
+        return $this->update;
+    }
+
+    /**
+     * @param UpdateModel $update
+     * @return InfoModel
+     */
+    final public function setUpdate(UpdateModel $update): InfoModel
+    {
+        $this->update = $update;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    final public function getFiles(): array
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param array $files
+     * @return InfoModel
+     */
+    final public function setFiles(array $files): InfoModel
+    {
+        $this->files = $files;
+        return $this;
+    }
 }
