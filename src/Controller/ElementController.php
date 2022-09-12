@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\Index\ElementsModel;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,11 +15,22 @@ class ElementController extends AbstractSerializerController
     final public function list(): Response {
         $this->setWorkingDir('index');
         $files = $this->fileProvider->getFilesContent($this->getFilesByExtension('xml'));
-        /** @var IndexType[] $indexes */
+        /** @var ElementsModel[] $indexes */
         $indexes = array_map(function ($content) {
-            return $this->deserialize($content, \stdClass::class, 'xml');
+            return $this->deserialize($content, ElementsModel::class, 'xml');
         }, $files);
 
-        return $this->renderPlaceholder($indexes);
+        $elements = [];
+        foreach ($indexes as $index) {
+            if (!empty($index->elements)) {
+                array_push($elements, ...$index->elements);
+            }
+        }
+
+        $elementsWithProperty = array_filter($elements, static function ($element) {
+            return isset($element->spellcasting);
+        });
+
+        return $this->renderPlaceholder($elements);
     }
 }

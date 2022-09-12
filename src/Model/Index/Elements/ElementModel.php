@@ -2,6 +2,8 @@
 
 namespace App\Model\Index\Elements;
 
+use App\Model\Index\Elements\Element\CompendiumModel;
+use App\Model\Index\Elements\Element\SpellcastingModel;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -75,9 +77,19 @@ class ElementModel
      */
     public string $prerequisite;
 
-    public \stdClass $compendium;
+    /**
+     * @var CompendiumModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Element\CompendiumModel")
+     */
+    public CompendiumModel $compendium;
 
-    public \stdClass $spellcasting;
+    /**
+     * @var SpellcastingModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Element\SpellcastingModel")
+     */
+    public SpellcastingModel $spellcasting;
 
     public \stdClass $multiclass;
 
