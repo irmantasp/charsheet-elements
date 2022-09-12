@@ -4,6 +4,7 @@ namespace App\Model\Index\Elements;
 
 use App\Model\Index\Elements\Element\CompendiumModel;
 use App\Model\Index\Elements\Element\RulesModel;
+use App\Model\Index\Elements\Element\SettersModel;
 use App\Model\Index\Elements\Element\SheetModel;
 use App\Model\Index\Elements\Element\SpellcastingModel;
 use JMS\Serializer\Annotation as Serializer;
@@ -80,7 +81,12 @@ class ElementModel
      */
     public string $requirements;
 
-    public \stdClass $setters;
+    /**
+     * @var SettersModel
+     *
+     * @Serializer\Type("App\Model\Index\Elements\Element\SettersModel")
+     */
+    public SettersModel $setters;
 
     /**
      * @var string

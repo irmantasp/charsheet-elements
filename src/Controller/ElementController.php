@@ -28,7 +28,7 @@ class ElementController extends AbstractSerializerController
         }
 
         $elementsWithProperty = array_filter($elements, static function ($element) {
-            return isset($element->rules) && !empty($element->rules);
+            return isset($element->setters->setters[0]) && !empty($element->setters->setters[0]);
         });
 
         $element = array_filter($elements, static function ($element) {
