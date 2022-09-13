@@ -3,13 +3,16 @@
 namespace App\Model\Source;
 
 use App\Model\Source\Index\InfoModel;
+use App\Property\FileInterface;
+use App\Property\FileInterfaceTrait;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @Serializer\XmlRoot("index")
  */
-class IndexModel
+class IndexModel implements FileInterface
 {
+    use FileInterfaceTrait;
 
     /**
      * @var InfoModel

@@ -12,6 +12,11 @@ trait FileProviderTrait
         return $this->fileProvider->setWorkingDir($dir);
     }
 
+    final public function getWorkingDir(): ?string
+    {
+        return $this->fileProvider->getWorkingDir();
+    }
+
     final public function getFilesByExtension(string $fileExtension): array
     {
         return $this->fileProvider->getFilesByExtension($fileExtension);

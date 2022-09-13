@@ -14,11 +14,11 @@ use JMS\Serializer\Annotation as Serializer;
 class InfoModel
 {
     /**
-     * @var AuthorModel
+     * @var AuthorModel|null
      *
      * @Serializer\Type("App\Model\Source\Index\Info\AuthorModel")
      */
-    public AuthorModel $author;
+    public ?AuthorModel $author = null;
 
     /**
      * @var string|null
@@ -26,21 +26,21 @@ class InfoModel
      * @Serializer\Type("string")
      * @Serializer\SkipWhenEmpty()
      */
-    public ?string $description;
+    public ?string $description = null;
 
     /**
-     * @var NameModel
+     * @var NameModel|null
      *
      * @Serializer\Type("App\Model\Source\Index\Info\NameModel")
      */
-    public NameModel $name;
+    public ?NameModel $name = null;
 
     /**
-     * @var UpdateModel
+     * @var UpdateModel|null
      *
      * @Serializer\Type("App\Model\Source\Index\Info\UpdateModel")
      */
-    public UpdateModel $update;
+    public ?UpdateModel $update = null;
 
     /**
      * @var FileModel[]
@@ -48,21 +48,21 @@ class InfoModel
      * @Serializer\Type("array<App\Model\Source\Index\Info\Update\FileModel>")
      * @Serializer\XmlList(inline=true, entry="file")
      */
-    public array $files;
+    public array $files = [];
 
     /**
-     * @return AuthorModel
+     * @return AuthorModel|null
      */
-    final public function getAuthor(): AuthorModel
+    final public function getAuthor(): ?AuthorModel
     {
         return $this->author;
     }
 
     /**
-     * @param AuthorModel $author
+     * @param AuthorModel|null $author
      * @return InfoModel
      */
-    final public function setAuthor(AuthorModel $author): InfoModel
+    final public function setAuthor(?AuthorModel $author): InfoModel
     {
         $this->author = $author;
         return $this;
@@ -87,36 +87,36 @@ class InfoModel
     }
 
     /**
-     * @return NameModel
+     * @return NameModel|null
      */
-    final public function getName(): NameModel
+    final public function getName(): ?NameModel
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     /**
-     * @param NameModel $name
+     * @param NameModel|null $name
      * @return InfoModel
      */
-    final public function setName(NameModel $name): InfoModel
+    final public function setName(?NameModel $name): InfoModel
     {
         $this->name = $name;
         return $this;
     }
 
     /**
-     * @return UpdateModel
+     * @return UpdateModel|null
      */
-    final public function getUpdate(): UpdateModel
+    final public function getUpdate(): ?UpdateModel
     {
         return $this->update;
     }
 
     /**
-     * @param UpdateModel $update
+     * @param UpdateModel|null $update
      * @return InfoModel
      */
-    final public function setUpdate(UpdateModel $update): InfoModel
+    final public function setUpdate(?UpdateModel $update): InfoModel
     {
         $this->update = $update;
         return $this;
@@ -134,7 +134,7 @@ class InfoModel
      * @param array $files
      * @return InfoModel
      */
-    final public function setFiles(array $files): InfoModel
+    final public function setFiles(array $files = []): InfoModel
     {
         $this->files = $files;
         return $this;

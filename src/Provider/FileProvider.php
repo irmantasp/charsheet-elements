@@ -30,6 +30,11 @@ class FileProvider
         return $this->setWorkingDirIterator();
     }
 
+    public function getWorkingDir(): ?string
+    {
+        return $this->workingDir;
+    }
+
     private function setWorkingDirIterator(): FileProvider
     {
         $workingDir = new RecursiveDirectoryIterator($this->workingDir);

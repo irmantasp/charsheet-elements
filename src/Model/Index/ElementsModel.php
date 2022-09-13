@@ -5,13 +5,16 @@ namespace App\Model\Index;
 use App\Model\Index\Elements\AppendModel;
 use App\Model\Index\Elements\ElementModel;
 use App\Model\Index\Elements\InfoModel;
+use App\Property\FileInterface;
+use App\Property\FileInterfaceTrait;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @Serializer\XmlRoot("elements")
  */
-class ElementsModel
+class ElementsModel implements FileInterface
 {
+    use FileInterfaceTrait;
 
     /**
      * @var InfoModel

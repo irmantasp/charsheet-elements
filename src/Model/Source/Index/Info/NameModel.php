@@ -11,51 +11,51 @@ class NameModel
 {
 
     /**
-     * @var string
+     * @var string|null
      *
      * @Serializer\Type("string")
      * @Serializer\XmlValue()
      */
-    public string $value;
+    public ?string $value = null;
 
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      * @Serializer\XmlAttribute()
      */
-    public string $url;
+    public ?string $url = null;
 
     /**
-     * @return string
+     * @return string|null
      */
-    final public function getValue(): string
+    final public function getValue(): ?string
     {
         return $this->value;
     }
 
     /**
-     * @param string $value
+     * @param string|null $value
      * @return NameModel
      */
-    final public function setValue(string $value): NameModel
+    final public function setValue(?string $value): NameModel
     {
         $this->value = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    final public function getUrl(): string
+    final public function getUrl(): ?string
     {
         return $this->url;
     }
 
     /**
-     * @param string $url
+     * @param string|null $url
      * @return NameModel
      */
-    final public function setUrl(string $url): NameModel
+    final public function setUrl(?string $url): NameModel
     {
         $this->url = $url;
         return $this;
