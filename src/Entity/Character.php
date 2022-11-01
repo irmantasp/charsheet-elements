@@ -4,6 +4,8 @@ namespace App\Entity;
 
 class Character
 {
+    public ?string $uuid = null;
+
     public string $name;
 
     public string $category;
@@ -27,6 +29,24 @@ class Character
     public string $class;
 
     public string $background;
+
+    /**
+     * @return string|null
+     */
+    final public function getUuid(): ?string
+    {
+        return $this->uuid;
+    }
+
+    /**
+     * @param string|null $uuid
+     * @return Character
+     */
+    final public function setUuid(?string $uuid): Character
+    {
+        $this->uuid = $uuid;
+        return $this;
+    }
 
     /**
      * @return string

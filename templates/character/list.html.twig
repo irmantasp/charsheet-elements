@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Characters list {% endblock %}
+{% block body %}
+    <ul>
+        <li>
+            <a href="{{ url('character.add') }}">Add new Character</a>
+        </li>
+    </ul>
+    <ul>
+        {% for character in characters %}
+            <li>
+                <p>{{ character.name }} <em>({{ character.category }})</em></p>
+                <ul>
+                    {% for action in ['view', 'edit', 'delete'] %}
+                        <li>
+                            <a href="{{ url('character.' ~ action, { 'character': character.uuid }) }}">{{ action|capitalize }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
