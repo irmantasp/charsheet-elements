@@ -6,6 +6,7 @@ use App\Controller\AbstractSerializerController;
 use App\Model\Index\ElementsModel;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class IndexController extends AbstractSerializerController
 {
@@ -35,7 +36,7 @@ class IndexController extends AbstractSerializerController
         );
     }
 
-    private function splitData(array $indexes): array {
+    final public function splitData(array $indexes): array {
         $info = $elements = $appends = $data = [];
         foreach ($indexes as $index) {
             if (isset($index->info)) {
@@ -60,7 +61,14 @@ class IndexController extends AbstractSerializerController
         return array_values($data);
     }
 
-    private function splitByType(array $types, array $elements): array {
+    final public function getContent(array $files, string $type, string $format): array {
+        return $this->cache->get($this->getCacheKey($type, $format), function (ItemInterface $item) use ($files, $type, $format) {
+            $item->expiresAfter(30*24*60*60);
+            return parent::getContent($files, $type, $format);
+        });
+    }
+
+    final public function splitByType(array $types, array $elements): array {
         return array_map(function ($type) use ($elements) {
             return $this->getByType($type, $elements);
         }, $types);

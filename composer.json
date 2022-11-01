@@ -6,6 +6,7 @@
     "require": {
         "php": ">=8.1",
         "ext-ctype": "*",
+        "ext-dom": "*",
         "ext-iconv": "*",
         "ext-simplexml": "*",
         "doctrine/annotations": "^1.0",
@@ -46,8 +47,7 @@
         "symfony/webpack-encore-bundle": "^1.12",
         "symfony/yaml": "5.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
-        "ext-dom": "*"
+        "twig/twig": "^2.12|^3.0"
     },
     "config": {
         "allow-plugins": {
