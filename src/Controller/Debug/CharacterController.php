@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CharacterController extends AbstractSerializerController
 {
-    /**
-     * @Route("/debug/characters", name="debug_characters_list")
-     */
+
     final public function list(): Response {
         $files = $this->getFiles('characters', 'dnd5e');
         $characters = $this->getContent($files, \stdClass::class, 'xml');

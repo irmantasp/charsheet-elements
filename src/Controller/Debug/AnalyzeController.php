@@ -14,9 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnalyzeController extends AbstractSerializerController
 {
 
-    /**
-     * @Route("/debug/analysis", name="debug_analysis_results_list")
-     */
+
     final public function list(): Response
     {
         $sources = $elements = $characters = [];

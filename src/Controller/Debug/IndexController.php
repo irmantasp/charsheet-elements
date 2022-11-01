@@ -10,9 +10,7 @@ use Symfony\Contracts\Cache\ItemInterface;
 
 class IndexController extends AbstractSerializerController
 {
-    /**
-     * @Route("/debug/indexes", name="debug_index_list")
-     */
+
     final public function list(): Response
     {
         $files = $this->getFiles('index', 'xml');

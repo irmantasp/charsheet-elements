@@ -10,9 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class SourceController extends AbstractSerializerController
 {
 
-    /**
-     * @Route("/debug/sources", name="debug_source_list")
-     */
     final public function list(): Response
     {
         $files = $this->getFiles('index', 'index');

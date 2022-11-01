@@ -12,9 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class CharacterController extends IndexController
 {
 
-    /**
-     * @Route("/character/add", name="character.add")
-     */
     final public function add(Request $request): Response
     {
         $files = $this->getFiles('index', 'xml');
