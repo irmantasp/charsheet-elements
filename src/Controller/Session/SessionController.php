@@ -10,17 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SessionController extends AbstractController
 {
-    private SessionInterface $session;
+    private RequestStack $requestStack;
 
     public function __construct(RequestStack $requestStack)
     {
-        $this->session = $requestStack->getSession();
+        $this->requestStack = $requestStack;
+    }
+
+    private function session(): SessionInterface
+    {
+        return $this->requestStack->getSession();
     }
 
     #[Route('/session/reset', name: 'session.reset')]
     final public function reset(): Response
     {
-        $this->session->invalidate();
+        $this->session()->invalidate();
 
         return $this->redirectToRoute('character.list');
     }

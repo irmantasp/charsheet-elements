@@ -12,7 +12,7 @@
             <li>
                 <p>{{ character.name }} <em>({{ character.category }})</em></p>
                 <ul>
-                    {% for action in ['view', 'edit', 'delete'] %}
+                    {% for action in ['view', 'edit', 'build', 'delete'] %}
                         <li>
                             <a href="{{ url('character.' ~ action, { 'character': character.uuid }) }}">{{ action|capitalize }}</a>
                         </li>

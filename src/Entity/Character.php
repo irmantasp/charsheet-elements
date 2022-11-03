@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use App\Model\Index\Elements\ElementModel;
+
 class Character
 {
     public ?string $uuid = null;
 
-    public string $name;
+    public ?string $name = null;
 
-    public string $category;
+    public ?string $category = null;
 
     public string $abilitySelectMethod;
 
@@ -24,11 +26,11 @@ class Character
 
     public int $charisma;
 
-    public string $race;
+    public ElementModel $race;
 
-    public string $class;
+    public ElementModel $class;
 
-    public string $background;
+    public ElementModel $background;
 
     /**
      * @return string|null
@@ -211,54 +213,54 @@ class Character
     }
 
     /**
-     * @return string
+     * @return ElementModel
      */
-    final public function getRace(): string
+    final public function getRace(): ElementModel
     {
         return $this->race;
     }
 
     /**
-     * @param string $race
+     * @param ElementModel $race
      * @return Character
      */
-    final public function setRace(string $race): Character
+    final public function setRace(ElementModel $race): Character
     {
         $this->race = $race;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ElementModel
      */
-    final public function getClass(): string
+    final public function getClass(): ElementModel
     {
         return $this->class;
     }
 
     /**
-     * @param string $class
+     * @param ElementModel $class
      * @return Character
      */
-    final public function setClass(string $class): Character
+    final public function setClass(ElementModel $class): Character
     {
         $this->class = $class;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ElementModel
      */
-    final public function getBackground(): string
+    final public function getBackground(): ElementModel
     {
         return $this->background;
     }
 
     /**
-     * @param string $background
+     * @param ElementModel $background
      * @return Character
      */
-    final public function setBackground(string $background): Character
+    final public function setBackground(ElementModel $background): Character
     {
         $this->background = $background;
         return $this;
