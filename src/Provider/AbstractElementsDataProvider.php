@@ -23,12 +23,16 @@ abstract class AbstractElementsDataProvider
 
     abstract public function getElements(): array;
 
-    final public function getElementsByType(string $type): array
+    final public function getElementsByType(?string $type = null): array
     {
         return $this->cache->get($this->getCacheKey(['list', $type]), function (ItemInterface $item) use ($type) {
             $item->expiresAfter(30*24*60*60);
 
             [$info, $elements, $appends] = $this->indexDataProvider->getIndexes();
+
+            if (is_null($type)) {
+                return $elements;
+            }
 
             return $this->getByType($type, $elements);
         });
