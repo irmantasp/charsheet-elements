@@ -21,20 +21,20 @@ class IndexController extends AbstractSerializerController
         [$races, $classes, $feats, $backgrounds, $items, $magicItems, $weapons, $armor, $spells, $sources] = $this->splitByType($types, $elements);
 
         return $this->renderPlaceholder(
-//            $indexes,
-//            $info,
-//            $elements,
-//            $appends,
-//            $races,
-//            $classes,
-//            $feats,
-//            $backgrounds,
+            $indexes,
+            $info,
+            $elements,
+            $appends,
+            $races,
+            $classes,
+            $feats,
+            $backgrounds,
             $items,
             $magicItems,
             $weapons,
             $armor,
-//            $spells,
-//            $sources
+            $spells,
+            $sources
         );
     }
 
