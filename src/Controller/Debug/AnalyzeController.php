@@ -15,6 +15,7 @@ class AnalyzeController extends AbstractSerializerController
 {
 
 
+    #[Route('/debug/analyse')]
     final public function list(): Response
     {
         $sources = $elements = $characters = [];
