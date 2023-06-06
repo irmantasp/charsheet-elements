@@ -6,9 +6,11 @@ use App\Model\Source\Index\InfoModel;
 use App\Property\FileInterface;
 use App\Property\FileInterfaceTrait;
 use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\XmlDiscriminator;
 
 /**
  * @Serializer\XmlRoot("index")
+ * @XmlDiscriminator(cdata=false)
  */
 class IndexModel implements FileInterface
 {

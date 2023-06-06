@@ -35,7 +35,7 @@ abstract class AbstractSerializerController extends AbstractController
 
     final public function renderPlaceholder(mixed $var, ...$vars): Response
     {
-        $dumpArguments = (bool) getenv('APP_DUMP_ARGUMENTS');
+        $dumpArguments = (bool) $_ENV['APP_DUMP_ARGUMENTS'];
         if ($dumpArguments === true) {
             /** @noinspection ForgottenDebugOutputInspection */
             dump($var, $vars);

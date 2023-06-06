@@ -67,7 +67,8 @@ class NestedArray {
      * @see NestedArray::setValue()
      * @see NestedArray::unsetValue()
      */
-    public static function &getValue(array &$array, array $parents, ?bool &$key_exists = NULL): mixed {
+    public static function &getValue(array &$array, array $parents, ?bool &$key_exists = NULL): mixed
+    {
         $ref =& $array;
         foreach ($parents as $parent) {
             if (is_array($ref) && (isset($ref[$parent]) || array_key_exists($parent, $ref))) {
@@ -258,8 +259,8 @@ class NestedArray {
      *
      * @see NestedArray::getValue()
      */
-    public static function keyExists(array $array, array $parents): bool {
-
+    public static function keyExists(array $array, array $parents): bool
+    {
         // Although this function is similar to PHP's array_key_exists(), its
         // arguments should be consistent with getValue().
         $key_exists = NULL;
@@ -291,7 +292,8 @@ class NestedArray {
      *
      * @see NestedArray::mergeDeepArray()
      */
-    public static function mergeDeep(): array {
+    public static function mergeDeep(): array
+    {
         return self::mergeDeepArray(func_get_args());
     }
 
@@ -321,7 +323,8 @@ class NestedArray {
      *
      * @see NestedArray::mergeDeep()
      */
-    public static function mergeDeepArray(array $arrays, bool $preserve_integer_keys = FALSE): array {
+    public static function mergeDeepArray(array $arrays, bool $preserve_integer_keys = FALSE): array
+    {
         $result = [];
         foreach ($arrays as $array) {
             foreach ($array as $key => $value) {
@@ -357,7 +360,8 @@ class NestedArray {
      * @return array
      *   The filtered array.
      */
-    public static function filter(array $array, callable $callable = NULL): array {
+    public static function filter(array $array, callable $callable = NULL): array
+    {
         $array = is_callable($callable) ? array_filter($array, $callable) : array_filter($array);
         foreach ($array as &$element) {
             if (is_array($element)) {
@@ -366,5 +370,4 @@ class NestedArray {
         }
         return $array;
     }
-
 }

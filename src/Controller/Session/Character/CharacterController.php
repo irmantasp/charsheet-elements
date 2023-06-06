@@ -9,7 +9,6 @@ use App\Form\Character\BackgroundStep;
 use App\Form\Character\ClassStep;
 use App\Form\Character\RaceStep;
 use App\Form\CharacterForm;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -57,11 +56,10 @@ class CharacterController extends AbstractController
             return $this->redirectToRoute('character.list');
         }
 
-        return $this->renderForm('character/form.html.twig', ['form' => $form]);
+        return $this->render('character/form.html.twig', ['form' => $form]);
     }
 
     #[Route('/character/{character}/edit', name: 'character.edit')]
-    #[ParamConverter('character')]
     final public function edit(Character $character, Request $request): Response
     {
         $form = $this->createForm(CharacterForm::class, $character, ['operation' => 'edit']);
@@ -76,7 +74,7 @@ class CharacterController extends AbstractController
             return $this->redirectToRoute('character.list');
         }
 
-        return $this->renderForm('character/form.html.twig', ['form' => $form]);
+        return $this->render('character/form.html.twig', ['form' => $form]);
     }
 
     #[Route(
@@ -89,7 +87,6 @@ class CharacterController extends AbstractController
             'step' => 'ability_selection'
         ]
     )]
-    #[ParamConverter('character')]
     final public function build(Character $character, string $step, Request $request): Response
     {
         switch ($step) {
@@ -139,11 +136,10 @@ class CharacterController extends AbstractController
             }
         }
 
-        return $this->renderForm('character/steps/form.html.twig', ['form' => $form]);
+        return $this->render('character/steps/form.html.twig', ['form' => $form]);
     }
 
     #[Route('/character/{character}/delete', name: 'character.delete')]
-    #[ParamConverter('character')]
     final public function delete(Character $character, Request $request): Response
     {
         $form = $this->createForm(CharacterForm::class, $character, ['operation' => 'delete']);
@@ -158,11 +154,10 @@ class CharacterController extends AbstractController
             return $this->redirectToRoute('character.list');
         }
 
-        return $this->renderForm('character/form.html.twig', ['form' => $form]);
+        return $this->render('character/form.html.twig', ['form' => $form]);
     }
 
     #[Route('/character/{character}', name: 'character.view')]
-    #[ParamConverter('character')]
     final public function view(Character $character, Request $request): Response
     {
         return new Response();

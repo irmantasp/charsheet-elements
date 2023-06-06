@@ -1,0 +1,3 @@
+services:
+  jms_serializer:
+    public: true

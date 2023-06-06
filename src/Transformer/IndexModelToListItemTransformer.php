@@ -26,9 +26,8 @@ class IndexModelToListItemTransformer
 
         $info = $source->getInfo();
 
-        if ($info->getName() instanceof NameModel) {
-            $entry['name'] = $info->getName()->getValue();
-            $entry['url'] = $info->getName()->getUrl();
+        if ($info->getName()) {
+            $entry['name'] = $info->getName();
         }
 
         if ($info->getDescription()) {

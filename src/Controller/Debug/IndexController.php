@@ -11,13 +11,14 @@ use Symfony\Contracts\Cache\ItemInterface;
 class IndexController extends AbstractSerializerController
 {
 
+    #[Route('/debug/index')]
     final public function list(): Response
     {
         $files = $this->getFiles('index', 'xml');
         $indexes = $this->getContent($files, ElementsModel::class, 'xml');
         [$info, $elements, $appends] = $this->splitData($indexes);
-        $types = ['Race', 'Class', 'Feat', 'Background', 'Item', 'Spell', 'Source'];
-        [$races, $classes, $feats, $backgrounds, $items, $spells, $sources] = $this->splitByType($types, $elements);
+        $types = ['Race', 'Class', 'Feat', 'Background', 'Item', 'Magic Item', 'Weapon', 'Armor', 'Spell', 'Source'];
+        [$races, $classes, $feats, $backgrounds, $items, $magicItems, $weapons, $armor, $spells, $sources] = $this->splitByType($types, $elements);
 
         return $this->renderPlaceholder(
             $indexes,
@@ -29,6 +30,9 @@ class IndexController extends AbstractSerializerController
             $feats,
             $backgrounds,
             $items,
+            $magicItems,
+            $weapons,
+            $armor,
             $spells,
             $sources
         );
