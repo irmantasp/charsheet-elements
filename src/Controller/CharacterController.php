@@ -7,7 +7,6 @@ use App\Form\Type\CharacterType;
 use App\Model\Index\ElementsModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class CharacterController extends IndexController
 {
