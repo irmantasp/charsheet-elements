@@ -9,6 +9,7 @@ use App\Transformer\IndexModelToListItemTransformer;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class SourceController extends AbstractSerializerController
 {
@@ -26,6 +27,7 @@ class SourceController extends AbstractSerializerController
         $this->listItemTransformer = $listItemTransformer;
     }
 
+    #[Route('/source/list')]
     final public function list(): Response
     {
         $files = $this->getFiles('index', 'index');
@@ -36,6 +38,7 @@ class SourceController extends AbstractSerializerController
         return $this->render('source_list.html.twig', ['sources' => $sources]);
     }
 
+    #[Route('/source/select')]
     final public function selectSources(Request $request): Response
     {
         $files = $this->getFiles('index', 'index');
@@ -46,6 +49,6 @@ class SourceController extends AbstractSerializerController
         $form = $this->createForm(SourceSelectType::class, $sources);
         $form->handleRequest($request);
 
-        return $this->renderForm('source_select.html.twig', ['form' => $form]);
+        return $this->render('source_select.html.twig', ['form' => $form]);
     }
 }

@@ -3,13 +3,13 @@
 namespace App\Model\Source\Index;
 
 use App\Model\Source\Index\Info\AuthorModel;
-use App\Model\Source\Index\Info\NameModel;
 use App\Model\Source\Index\Info\Update\FileModel;
 use App\Model\Source\Index\Info\UpdateModel;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @Serializer\XmlRoot("info")
+ * @Serializer\XmlDiscriminator(cdata=false)
  */
 class InfoModel
 {
@@ -29,11 +29,12 @@ class InfoModel
     public ?string $description = null;
 
     /**
-     * @var NameModel|null
+     * @var string|null
      *
-     * @Serializer\Type("App\Model\Source\Index\Info\NameModel")
+     * @Serializer\Type("string")
+     * @Serializer\SkipWhenEmpty()
      */
-    public ?NameModel $name = null;
+    public ?string $name = null;
 
     /**
      * @var UpdateModel|null
@@ -87,18 +88,18 @@ class InfoModel
     }
 
     /**
-     * @return NameModel|null
+     * @return string|null
      */
-    final public function getName(): ?NameModel
+    final public function getName(): ?string
     {
         return $this->name ?? null;
     }
 
     /**
-     * @param NameModel|null $name
+     * @param string|null $name
      * @return InfoModel
      */
-    final public function setName(?NameModel $name): InfoModel
+    final public function setName(?string $name): InfoModel
     {
         $this->name = $name;
         return $this;

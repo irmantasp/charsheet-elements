@@ -32,6 +32,6 @@ class CharacterController extends IndexController
 
         $form->handleRequest($request);
 
-        return $this->renderForm('character.html.twig', ['form' => $form]);
+        return $this->render('character.html.twig', ['form' => $form]);
     }
 }

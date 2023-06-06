@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index>
+	<info>
+		<name>Example</name>
+		<description>Example content</description>
+		<author url="https://github.com">Example author</author>
+		<update version="0.0.1">
+			<file name="example.index" url="example.index" />
+		</update>
+	</info>
+</index>
