@@ -8,4 +8,9 @@
 			<file name="example.index" url="example.index" />
 		</update>
 	</info>
+    <files>
+        <file name="lorem.index" url="example/lorem.index" />
+        <file name="ipsum.index" url="example/ipsum.index" />
+        <obsolete name="obsolete.index" url="example/obsolete.index" />
+    </files>
 </index>

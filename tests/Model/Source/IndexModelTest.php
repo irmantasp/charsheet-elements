@@ -66,6 +66,6 @@ class IndexModelTest extends KernelTestCase
         $model = $this->serializer->deserialize($this->file, IndexModel::class, 'xml');
         $content = $this->serializer->serialize($model, 'xml');
 
-        $this->assertEquals($this->file, $content);
+        $this->assertXmlStringEqualsXmlString($this->file, $content);
     }
 }
