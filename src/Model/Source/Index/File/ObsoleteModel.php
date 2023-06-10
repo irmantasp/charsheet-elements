@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Model\Source\Index\Info;
+namespace App\Model\Source\Index\File;
 
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * @Serializer\XmlRoot("author")
+ * @Serializer\XmlRoot("obsolete")
  */
-class AuthorModel
+class ObsoleteModel
 {
 
     /**
      * @var string
      *
      * @Serializer\Type("string")
-     * @Serializer\XmlValue()
-     * @Serializer\XmlElement(cdata=false)
+     * @Serializer\XmlAttribute()
      */
-    public string $value;
+    public string $name;
 
     /**
      * @var string
+     *
      * @Serializer\Type("string")
      * @Serializer\XmlAttribute()
      */
@@ -29,18 +29,18 @@ class AuthorModel
     /**
      * @return string
      */
-    final public function getValue(): string
+    final public function getName(): string
     {
-        return $this->value;
+        return $this->name;
     }
 
     /**
-     * @param string $value
-     * @return AuthorModel
+     * @param string $name
+     * @return FileModel
      */
-    final public function setValue(string $value): AuthorModel
+    final public function setName(string $name): ObsoleteModel
     {
-        $this->value = $value;
+        $this->name = $name;
         return $this;
     }
 
@@ -54,12 +54,11 @@ class AuthorModel
 
     /**
      * @param string $url
-     * @return AuthorModel
+     * @return FileModel
      */
-    final public function setUrl(string $url): AuthorModel
+    final public function setUrl(string $url): ObsoleteModel
     {
         $this->url = $url;
         return $this;
     }
-
 }

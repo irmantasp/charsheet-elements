@@ -2,6 +2,7 @@
 
 namespace App\Model\Source;
 
+use App\Model\Source\Index\FilesModel;
 use App\Model\Source\Index\InfoModel;
 use App\Property\FileInterface;
 use App\Property\FileInterfaceTrait;
@@ -24,6 +25,14 @@ class IndexModel implements FileInterface
     public InfoModel $info;
 
     /**
+     * @var FilesModel
+     *
+     * @Serializer\Type("App\Model\Source\Index\FilesModel")
+     * @Serializer\SkipWhenEmpty()
+     */
+    public FilesModel $files;
+
+    /**
      * @return InfoModel
      */
     final public function getInfo(): InfoModel
@@ -38,6 +47,25 @@ class IndexModel implements FileInterface
     final public function setInfo(InfoModel $info): IndexModel
     {
         $this->info = $info;
+        return $this;
+    }
+
+
+    /**
+     * @return FilesModel
+     */
+    final public function getFiles(): FilesModel
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param FilesModel $files
+     * @return IndexModel
+     */
+    final public function setFiles(FilesModel $files): IndexModel
+    {
+        $this->files = $files;
         return $this;
     }
 }
