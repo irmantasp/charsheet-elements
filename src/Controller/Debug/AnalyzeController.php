@@ -49,7 +49,7 @@ class AnalyzeController extends AbstractSerializerController
     final public function characters(): Response
     {
         $characters = [];
-        $this->analyse('index', 'dnd5e', '/characters', $characters);
+        $this->analyse('characters', 'dnd5e', '/character', $characters);
 
         return $this->renderPlaceholder($characters);
     }

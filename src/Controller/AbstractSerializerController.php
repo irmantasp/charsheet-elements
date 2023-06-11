@@ -33,12 +33,12 @@ abstract class AbstractSerializerController extends AbstractController
 
     }
 
-    final public function renderPlaceholder(mixed $var, ...$vars): Response
+    final public function renderPlaceholder(...$vars): Response
     {
         $dumpArguments = (bool) $_ENV['APP_DUMP_ARGUMENTS'];
         if ($dumpArguments === true) {
             /** @noinspection ForgottenDebugOutputInspection */
-            dump($var, $vars);
+            dump(...$vars);
         }
 
         return $this->render('example/index.html.twig', [
