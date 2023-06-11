@@ -34,8 +34,9 @@ class HtmlHandler implements SubscribingHandlerInterface
         ];
     }
 
-    final public function serializeHTML(SerializationVisitorInterface $visitor, string $data, array $type, SerializationContext $context): \SimpleXMLElement
+    final public function serializeHTML(SerializationVisitorInterface $visitor, ?string $data, array $type, SerializationContext $context): ?\DOMElement
     {
+       return new \DOMElement('description', $data);
     }
 
     final public function deserializeHTML(DeserializationVisitorInterface $visitor, \SimpleXMLElement $element, array $type, DeserializationContext $context): ?string
