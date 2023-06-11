@@ -27,6 +27,33 @@ class AnalyzeController extends AbstractSerializerController
         return $this->renderPlaceholder($sources, $elements, $characters);
     }
 
+    #[Route('/debug/analyse/sources')]
+    final public function sources(): Response
+    {
+        $sources = [];
+        $this->analyse('index', 'index', '/index', $sources);
+
+        return $this->renderPlaceholder($sources);
+    }
+
+    #[Route('/debug/analyse/elements')]
+    final public function elements(): Response
+    {
+        $elements = [];
+        $this->analyse('index', 'xml', '/elements', $elements);
+
+        return $this->renderPlaceholder($elements);
+    }
+
+    #[Route('/debug/analyse/characters')]
+    final public function characters(): Response
+    {
+        $characters = [];
+        $this->analyse('index', 'dnd5e', '/characters', $characters);
+
+        return $this->renderPlaceholder($characters);
+    }
+
     private function analyse(string $dir, string $fileExtension, string $expression, array &$results): void
     {
         $files = $this->getFiles($dir, $fileExtension);
