@@ -34,22 +34,15 @@ class HtmlHandler implements SubscribingHandlerInterface
         ];
     }
 
-    final public function serializeHTML(SerializationVisitorInterface $visitor, string $data, array $type, SerializationContext $context): \SimpleXMLElement
+    final public function serializeHTML(SerializationVisitorInterface $visitor, ?string $data, array $type, SerializationContext $context): ?\DOMElement
     {
+       $content = new \DOMElement('description', $data);
+
+       return $content;
     }
 
     final public function deserializeHTML(DeserializationVisitorInterface $visitor, \SimpleXMLElement $element, array $type, DeserializationContext $context): ?string
     {
-        $content = $element->children();
-        if (!$content instanceof \SimpleXMLElement) {
-            return null;
-        }
-
-        $html = [];
-        foreach ($content as $line) {
-            $html[] = $line->asXML();
-        }
-
-        return implode('', $html);
+        return $element->asXML();
     }
 }
