@@ -36,13 +36,21 @@ class HtmlHandler implements SubscribingHandlerInterface
 
     final public function serializeHTML(SerializationVisitorInterface $visitor, ?string $data, array $type, SerializationContext $context): ?\DOMElement
     {
-       $content = new \DOMElement('description', $data);
-
-       return $content;
+       return new \DOMElement('description', $data);
     }
 
     final public function deserializeHTML(DeserializationVisitorInterface $visitor, \SimpleXMLElement $element, array $type, DeserializationContext $context): ?string
     {
-        return $element->asXML();
+        $content = $element->children();
+        if (!$content instanceof \SimpleXMLElement) {
+            return null;
+        }
+
+        $html = [];
+        foreach ($content as $line) {
+            $html[] = $line->asXML();
+        }
+
+        return implode('', $html);
     }
 }
