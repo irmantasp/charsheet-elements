@@ -30,7 +30,7 @@ class ElementModel
      * @Serializer\Type("string")
      * @Serializer\XmlAttribute()
      */
-    public string $type;
+    public string $source;
 
     /**
      * @var string
@@ -38,7 +38,7 @@ class ElementModel
      * @Serializer\Type("string")
      * @Serializer\XmlAttribute()
      */
-    public string $resource;
+    public string $type;
 
     /**
      * @var string
