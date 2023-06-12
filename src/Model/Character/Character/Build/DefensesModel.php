@@ -9,5 +9,8 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class DefensesModel
 {
-
+    /**
+     * @var string
+     */
+    public string $conditional;
 }
