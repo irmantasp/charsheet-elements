@@ -2,6 +2,7 @@
 
 namespace App\Model\Character\Character\Build;
 
+use App\Model\Character\Character\Build\Input\AttacksModel;
 use App\Model\Character\Character\Build\Input\BackgroundModel;
 use App\Model\Character\Character\Build\Input\CurrencyModel;
 use App\Model\Character\Character\Build\Input\NotesModel;
@@ -46,9 +47,12 @@ class InputModel
     public int $experience;
 
     /**
-     * @var \stdClass
+     * @var AttacksModel
+     *
+     * @Serializer\Type("App\Model\Character\Character\Build\Input\AttacksModel")
+     * @Serializer\SerializedName("attacks")
      */
-    public \stdClass $attacks;
+    public AttacksModel $attacks;
 
     /**
      * @var string
