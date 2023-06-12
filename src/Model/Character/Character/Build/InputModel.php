@@ -4,6 +4,7 @@ namespace App\Model\Character\Character\Build;
 
 use App\Model\Character\Character\Build\Input\CurrencyModel;
 use App\Model\Character\Character\Build\Input\NotesModel;
+use App\Model\Character\Character\Build\Input\OrganizationModel;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -102,9 +103,11 @@ class InputModel
     public \stdClass $background;
 
     /**
-     * @var \stdClass
+     * @var OrganizationModel|null
+     *
+     * @Serializer\Type("App\Model\Character\Character\Build\Input\OrganizationModel")
      */
-    public \stdClass $organization;
+    public ?OrganizationModel $organization;
 
     /**
      * @var string
