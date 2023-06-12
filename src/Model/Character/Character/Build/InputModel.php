@@ -2,6 +2,7 @@
 
 namespace App\Model\Character\Character\Build;
 
+use App\Model\Character\Character\Build\Input\BackgroundModel;
 use App\Model\Character\Character\Build\Input\CurrencyModel;
 use App\Model\Character\Character\Build\Input\NotesModel;
 use App\Model\Character\Character\Build\Input\OrganizationModel;
@@ -98,9 +99,11 @@ class InputModel
     public string $backgroundFlaws;
 
     /**
-     * @var \stdClass
+     * @var BackgroundModel
+     *
+     * @Serializer\Type("App\Model\Character\Character\Build\Input\BackgroundModel")
      */
-    public \stdClass $background;
+    public BackgroundModel $background;
 
     /**
      * @var OrganizationModel|null
