@@ -2,6 +2,7 @@
 
 namespace App\Model\Character\Character\Build;
 
+use App\Model\Character\Character\Build\Input\CurrencyModel;
 use App\Model\Character\Character\Build\Input\NotesModel;
 use JMS\Serializer\Annotation as Serializer;
 
@@ -114,9 +115,11 @@ class InputModel
     public string $additionalFeatures;
 
     /**
-     * @var \stdClass
+     * @var CurrencyModel
+     *
+     * @Serializer\Type("App\Model\Character\Character\Build\Input\CurrencyModel")
      */
-    public \stdClass $currency;
+    public CurrencyModel $currency;
 
     /**
      * @var NotesModel
