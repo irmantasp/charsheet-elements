@@ -29,11 +29,12 @@ class MagicModel
     public int $level;
 
     /**
-     * @var SpellcastingModel|null
-     * @Serializer\Type("App\Model\Character\Character\Build\Magic\SpellcastingModel")
+     * @var SpellcastingModel[]
+     * @Serializer\Type("array<App\Model\Character\Character\Build\Magic\SpellcastingModel>")
+     * @Serializer\XmlList(inline=true, entry="spellcasting")
      * @Serializer\SkipWhenEmpty()
      */
-    public ?SpellcastingModel $spellcasting;
+    public array $spellcasting;
 
     /**
      * @var AdditionalModel|null
