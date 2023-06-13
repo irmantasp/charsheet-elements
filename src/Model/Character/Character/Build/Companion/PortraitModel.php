@@ -19,6 +19,8 @@ class PortraitModel
 
     /**
      * @var string
+     *
+     * @Serializer\XmlValue()
      */
     public string $value;
 }
