@@ -96,7 +96,6 @@ class BuildModel
      *
      * @Serializer\Type("App\Model\Character\Character\Build\MagicModel")
      * @Serializer\SerializedName("magic")
-     * @Serializer\SkipWhenEmpty()
      */
     public ?MagicModel $model;
 

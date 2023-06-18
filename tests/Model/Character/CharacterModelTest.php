@@ -19,7 +19,7 @@ class CharacterModelTest extends KernelTestCase
         $container = $kernel->getContainer();
 
         $this->serializer = $container->get('jms_serializer');
-        $this->file = file_get_contents(__DIR__ . '/example.dnd5e');
+        $this->file = file_get_contents(__DIR__ . '/1 level no data 4d6.dnd5e');
     }
 
     final public function testCharacterModelDeserialize(): void

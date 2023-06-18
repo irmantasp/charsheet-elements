@@ -19,12 +19,12 @@ class AppearanceModel
     public string $portrait;
 
     /**
-     * @var int
+     * @var string
      *
-     * @Serializer\Type("int")
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("age")
      */
-    public int $age;
+    public string $age;
 
     /**
      * @var string
