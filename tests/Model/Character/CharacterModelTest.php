@@ -102,6 +102,7 @@ class CharacterModelTest extends KernelTestCase
             '1 level no data standard array srd race' => ['1 level no data standard array srd race.dnd5e'],
             '1 level no data standard array srd' => ['1 level no data standard array srd.dnd5e'],
             '1 level no data standard array' => ['1 level no data standard array.dnd5e'],
+            'Conditional defense' => ['Defense.dnd5e'],
             'example' => ['example.dnd5e'],
         ];
     }
