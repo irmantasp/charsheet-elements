@@ -2,7 +2,7 @@
 
 namespace App\Tests\Model\Index;
 
-use App\Model\Index\ElementsModel;
+use App\Model\Elements\ElementsModel;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

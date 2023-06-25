@@ -2,10 +2,10 @@
 
 namespace App\Tests\Model\Source;
 
-use App\Model\Source\Index\Info\AuthorModel;
-use App\Model\Source\Index\Info\Update\FileModel;
-use App\Model\Source\Index\Info\UpdateModel;
-use App\Model\Source\IndexModel;
+use App\Model\Index\Index\Info\AuthorModel;
+use App\Model\Index\Index\Info\Update\FileModel;
+use App\Model\Index\Index\Info\UpdateModel;
+use App\Model\Index\IndexModel;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
