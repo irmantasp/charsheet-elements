@@ -2,10 +2,10 @@
 
 namespace App\EventSubscriber;
 
-use App\Model\Index\Elements\Element\Rules\GrantModel;
-use App\Model\Index\Elements\Element\Rules\RuleModel;
-use App\Model\Index\Elements\Element\Rules\SelectModel;
-use App\Model\Index\Elements\Element\Rules\StatisticsModel;
+use App\Model\Elements\Elements\Element\Rules\GrantModel;
+use App\Model\Elements\Elements\Element\Rules\RuleModel;
+use App\Model\Elements\Elements\Element\Rules\SelectModel;
+use App\Model\Elements\Elements\Element\Rules\StatisticsModel;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\PreDeserializeEvent;
 

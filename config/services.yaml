@@ -8,6 +8,7 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
+        public: true
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
@@ -17,10 +18,8 @@ services:
         resource: '../src/'
         exclude:
             - '../src/Kernel.php'
+            - '../src/Model/'
+            - '../src/Item/'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
-    App\ValueResolver\CharacterValueResolver:
-        tags:
-            - { name: controller.argument_value_resolver, priority: 150 }
