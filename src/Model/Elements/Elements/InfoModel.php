@@ -15,7 +15,7 @@ class InfoModel
     /**
      * @var AuthorModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Info\AuthorModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Info\AuthorModel")
      */
     public AuthorModel $author;
 
@@ -30,14 +30,14 @@ class InfoModel
     /**
      * @var NameModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Info\NameModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Info\NameModel")
      */
     public NameModel $name;
 
     /**
      * @var UpdateModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Info\UpdateModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Info\UpdateModel")
      */
     public UpdateModel $update;
 }

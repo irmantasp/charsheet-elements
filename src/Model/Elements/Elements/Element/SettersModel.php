@@ -14,7 +14,7 @@ class SettersModel
     /**
      * @var SetterModel[]
      *
-     * @Serializer\Type("array<App\Model\Index\Elements\Element\Setters\SetterModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\Element\Setters\SetterModel>")
      * @Serializer\XmlList(inline=true, entry="set")
      */
     public array $setters;

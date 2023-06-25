@@ -32,14 +32,14 @@ class InfoModel
     /**
      * @var AuthorModel|null
      *
-     * @Serializer\Type("App\Model\Source\Index\Info\AuthorModel")
+     * @Serializer\Type("App\Model\Index\Index\Info\AuthorModel")
      */
     public ?AuthorModel $author = null;
 
     /**
      * @var UpdateModel|null
      *
-     * @Serializer\Type("App\Model\Source\Index\Info\UpdateModel")
+     * @Serializer\Type("App\Model\Index\Index\Info\UpdateModel")
      */
     public ?UpdateModel $update = null;
 

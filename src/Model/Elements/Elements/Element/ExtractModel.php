@@ -20,7 +20,7 @@ class ExtractModel
     /**
      * @var ItemModel[]
      *
-     * @Serializer\Type("array<App\Model\Index\Elements\Element\Extract\ItemModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\Element\Extract\ItemModel>")
      * @Serializer\XmlList(inline=true, entry="item")
      */
     public array $items;

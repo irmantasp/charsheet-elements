@@ -15,7 +15,7 @@ class FilesModel
     /**
      * @var FileModel[]
      *
-     * @Serializer\Type("array<App\Model\Source\Index\File\FileModel>")
+     * @Serializer\Type("array<App\Model\Index\Index\File\FileModel>")
      * @Serializer\XmlList(inline=true, entry="file")
      */
     public array $files = [];
@@ -23,7 +23,7 @@ class FilesModel
     /**
      * @var ObsoleteModel[]
      *
-     * @Serializer\Type("array<App\Model\Source\Index\File\ObsoleteModel>")
+     * @Serializer\Type("array<App\Model\Index\Index\File\ObsoleteModel>")
      * @Serializer\XmlList(inline=true, entry="obsolete")
      */
     public array $obsolete = [];

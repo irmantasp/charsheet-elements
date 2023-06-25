@@ -21,9 +21,9 @@ class UpdateModel
 
 
     /**
-     * @var \App\Model\Index\Index\FileModel[]
+     * @var App\Model\Index\Index\Info\Update\FileMode[]
      *
-     * @Serializer\Type("array<App\Model\Source\Index\Info\Update\FileModel>")
+     * @Serializer\Type("array<App\Model\Index\Index\Info\Update\FileModel>")
      * @Serializer\XmlList(inline=true, entry="file")
      */
     public array $files;

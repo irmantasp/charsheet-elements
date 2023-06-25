@@ -20,14 +20,14 @@ class IndexModel implements FileInterface
     /**
      * @var InfoModel
      *
-     * @Serializer\Type("App\Model\Source\Index\InfoModel")
+     * @Serializer\Type("App\Model\Index\Index\InfoModel")
      */
     public InfoModel $info;
 
     /**
      * @var FilesModel
      *
-     * @Serializer\Type("App\Model\Source\Index\FilesModel")
+     * @Serializer\Type("App\Model\Index\Index\FilesModel")
      * @Serializer\SkipWhenEmpty()
      */
     public FilesModel $files;

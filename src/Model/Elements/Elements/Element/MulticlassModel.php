@@ -34,14 +34,14 @@ class MulticlassModel
     /**
      * @var RulesModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\RulesModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\RulesModel")
      */
     public RulesModel $rules;
 
     /**
      * @var SettersModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\SettersModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
      */
     public SettersModel $setters;
 }
