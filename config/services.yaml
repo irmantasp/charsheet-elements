@@ -4,8 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    app.dir.index: '%kernel.project_dir%/public/upload/%kernel.environment%/index'
-    app.dir.character: '%kernel.project_dir%/var/characters/%kernel.environment%'
+    app.dir: '%kernel.project_dir%/var/files/%kernel.environment%'
+    app.dir.index: '%app.dir%/index'
+    app.dir.character: '%app.dir%/character'
 
 services:
     # default configuration for services in *this* file
