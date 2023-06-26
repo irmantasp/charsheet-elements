@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Repository;
 
 use App\Helper\SerializerHelperTrait;
 use App\Model\Index\IndexModel;
 use JMS\Serializer\SerializerInterface;
 
-class FilesDownloaderService
+class IndexDirectoryRepository
 {
     use SerializerHelperTrait;
 

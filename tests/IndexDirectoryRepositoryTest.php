@@ -2,18 +2,18 @@
 
 namespace App\Tests;
 
-use App\FilesDownloaderService;
+use App\Repository\IndexDirectoryRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class FilesDownloaderServiceTest extends KernelTestCase
+class IndexDirectoryRepositoryTest extends KernelTestCase
 {
-    private FilesDownloaderService $filesDownloader;
+    private IndexDirectoryRepository $indexDirectory;
     final public function setUp(): void
     {
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
 
-        $this->filesDownloader = $container->get(FilesDownloaderService::class);
+        $this->indexDirectory = $container->get(IndexDirectoryRepository::class);
     }
 
     /**
@@ -21,7 +21,7 @@ class FilesDownloaderServiceTest extends KernelTestCase
      */
     final public function testPersist(string $url): void
     {
-        $this->filesDownloader->persist($url);
+        $this->indexDirectory->persist($url);
     }
 
     final public function provideTestGetFromUrlData(): array
