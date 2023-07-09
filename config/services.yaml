@@ -20,14 +20,22 @@ services:
     App\:
         resource: '../src/'
         exclude:
-            - '../src/Kernel.php'
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
             - '../src/Model/'
+            - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    App\Repository\IndexDirectoryRepository:
-        class: App\Repository\IndexDirectoryRepository
+    App\Provider\ContentDirectoryProvider:
+        class: App\Provider\ContentDirectoryProvider
+        arguments:
+            - '@jms_serializer.serializer'
+            - '%app.dir.index%'
+
+    App\Provider\ContentElementsProvider:
+        class: App\Provider\ContentElementsProvider
         arguments:
             - '@jms_serializer.serializer'
             - '%app.dir.index%'

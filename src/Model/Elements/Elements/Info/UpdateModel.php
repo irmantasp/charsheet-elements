@@ -23,7 +23,7 @@ class UpdateModel
     /**
      * @var FileModel[]
      *
-     * @Serializer\Type("array<App\Model\Source\Index\Info\Update\FileModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\Info\Update\FileModel>")
      * @Serializer\XmlList(inline=true, entry="file")
      */
     public array $files;

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if content is not empty %}
+        <ul>
+            {% for entry in content %}
+                <li>
+                    <p>
+                        {% if entry.__index is not null and entry.__index.info.name %}
+                            {{ entry.__index.info.name }}
+                        {% else %}
+                            {{ entry.id }}: {{ entry.Url }}
+                        {% endif %}
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="{{ path('app_content_delete', { 'content': entry.id }) }}">Delete</a>
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
