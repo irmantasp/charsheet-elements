@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sources>
+    <restricted>
+        <source id="ID_WOTC_SOURCE_LOST_MINE_OF_PHANDELVER">Lost Mine of Phandelver</source>
+        <element>ID_WOTC_LMOP_MAGIC_ITEM_DRAGONGUARD</element>
+        <element>ID_WOTC_LMOP_MAGIC_ITEM_HEW</element>
+        <element>ID_WOTC_LMOP_MAGIC_ITEM_LIGHTBRINGER</element>
+        <element>ID_WOTC_LMOP_MAGIC_ITEM_STAFF_OF_DEFENSE</element>
+        <element>ID_WOTC_LMOP_MAGIC_ITEM_SPIDER_STAFF</element>
+    </restricted>
+</sources>
