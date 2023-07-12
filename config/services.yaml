@@ -39,3 +39,8 @@ services:
         arguments:
             - '@jms_serializer.serializer'
             - '%app.dir.index%'
+
+    App\Provider\RestrictedElementsContentElementsProvider:
+        class: App\Provider\RestrictedElementsContentElementsProvider
+        arguments:
+            - '@App\Provider\ContentElementsProvider'
