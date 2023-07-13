@@ -19,7 +19,7 @@ class RestrictedElementsContentElementsProviderTest extends KernelTestCase
         $this->elementsProvider = $container->get(RestrictedElementsContentElementsProvider::class);
     }
 
-    final public function testGetElementsFromIndexDirectory(): void
+    final public function testGetElementsFromIndexDirectoryLostMineOfPhandelverRestricted(): void
     {
         $this->elementsProvider->setRestrictions();
         $elements = $this->elementsProvider->getElementsFromIndexDirectory();
@@ -41,20 +41,48 @@ class RestrictedElementsContentElementsProviderTest extends KernelTestCase
         $this->assertArrayNotHasKey('ID_WOTC_LMOP_MAGIC_ITEM_SPIDER_STAFF', $elementsAfterRestrictions);
 
         $this->assertNotSameSize($elements, $elementsAfterRestrictions);
-//        $this->assertNotEquals($elementsAfterRestrictions, $elements);
 
         $difference = array_diff_key($elements, $elementsAfterRestrictions);
         $this->assertNotSameSize($difference, $elements);
         $this->assertNotSameSize($difference, $elementsAfterRestrictions);
-//        $this->assertNotEquals($difference, $elements);
-//        $this->assertNotEquals($difference, $elementsAfterRestrictions);
-
 
         $this->assertArrayHasKey('ID_WOTC_LMOP_MAGIC_ITEM_DRAGONGUARD', $difference);
         $this->assertArrayHasKey('ID_WOTC_LMOP_MAGIC_ITEM_HEW', $difference);
         $this->assertArrayHasKey('ID_WOTC_LMOP_MAGIC_ITEM_LIGHTBRINGER', $difference);
         $this->assertArrayHasKey('ID_WOTC_LMOP_MAGIC_ITEM_STAFF_OF_DEFENSE', $difference);
         $this->assertArrayHasKey('ID_WOTC_LMOP_MAGIC_ITEM_SPIDER_STAFF', $difference);
+
+        $this->assertCount(count($elements) - count($elementsAfterRestrictions), $difference);
+    }
+
+    final public function testGetElementsFromIndexDirectoryPlayTestSourceElementsRestricted(): void
+    {
+        $sourceRestrictions = $this->sourcesManager->restrictPlayTestSourceElements();
+
+        $this->elementsProvider->setRestrictions();
+        $elements = $this->elementsProvider->getElementsFromIndexDirectory();
+
+        $restrictedElements = $sourceRestrictions->restricted->elements;
+        foreach ($restrictedElements as $restrictedElement) {
+            $this->assertArrayHasKey($restrictedElement->value, $elements);
+        }
+
+        $this->elementsProvider->setRestrictions($sourceRestrictions->restricted);
+        $elementsAfterRestrictions = $this->elementsProvider->getElementsFromIndexDirectory();
+
+        foreach ($restrictedElements as $restrictedElement) {
+            $this->assertArrayNotHasKey($restrictedElement->value, $elementsAfterRestrictions);
+        }
+
+        $this->assertNotSameSize($elements, $elementsAfterRestrictions);
+
+        $difference = array_diff_key($elements, $elementsAfterRestrictions);
+        $this->assertNotSameSize($difference, $elements);
+        $this->assertNotSameSize($difference, $elementsAfterRestrictions);
+
+        foreach ($restrictedElements as $restrictedElement) {
+            $this->assertArrayHasKey($restrictedElement->value, $elements);
+        }
 
         $this->assertCount(count($elements) - count($elementsAfterRestrictions), $difference);
     }
