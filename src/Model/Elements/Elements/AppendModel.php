@@ -21,7 +21,7 @@ class AppendModel
     /**
      * @var RulesModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\RulesModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\RulesModel")
      */
     public RulesModel $rules;
 

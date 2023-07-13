@@ -19,14 +19,14 @@ class ElementsModel implements FileInterface
     /**
      * @var InfoModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\InfoModel")
+     * @Serializer\Type("App\Model\Elements\Elements\InfoModel")
      */
     public InfoModel $info;
 
     /**
      * @var ElementModel[]
      *
-     * @Serializer\Type("array<App\Model\Index\Elements\ElementModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\ElementModel>")
      * @Serializer\XmlList(inline=true, entry="element")
      */
     public array $elements;
@@ -34,7 +34,7 @@ class ElementsModel implements FileInterface
     /**
      * @var AppendModel[]
      *
-     * @Serializer\Type("array<App\Model\Index\Elements\AppendModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\AppendModel>")
      * @Serializer\XmlList(inline=true, entry="append")
      */
     public array $append;

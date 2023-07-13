@@ -97,7 +97,7 @@ class SelectModel extends RuleModel
     /**
      * @var ItemModel[]
      *
-     * @Serializer\Type("array<App\Model\Index\Elements\Element\Rules\Select\ItemModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\Element\Rules\Select\ItemModel>")
      * @Serializer\XmlList(inline=true, entry="item")
      */
     public array $items;

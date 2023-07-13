@@ -5,7 +5,7 @@ namespace App\Property;
 interface FileInterface
 {
 
-    public function setFilePath(string $path): FileInterface;
+    public function setFilePath(string $path): void;
 
-    public function getFilePath(): string;
+    public function getFilePath(): ?string;
 }

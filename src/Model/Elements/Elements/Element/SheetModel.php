@@ -49,7 +49,7 @@ class SheetModel
     /**
      * @var DescriptionModel[]
      *
-     * @Serializer\Type("array<App\Model\Index\Elements\Element\Sheet\DescriptionModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\Element\Sheet\DescriptionModel>")
      * @Serializer\XmlList(inline=true, entry="description")
      */
     public array $description;

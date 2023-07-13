@@ -65,14 +65,14 @@ class ElementModel
     /**
      * @var SheetModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\SheetModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\SheetModel")
      */
     public SheetModel $sheet;
 
     /**
      * @var RulesModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\RulesModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\RulesModel")
      */
     public RulesModel $rules;
 
@@ -86,7 +86,7 @@ class ElementModel
     /**
      * @var SettersModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\SettersModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
      */
     public SettersModel $setters;
 
@@ -100,28 +100,28 @@ class ElementModel
     /**
      * @var CompendiumModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\CompendiumModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\CompendiumModel")
      */
     public CompendiumModel $compendium;
 
     /**
      * @var SpellcastingModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\SpellcastingModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\SpellcastingModel")
      */
     public SpellcastingModel $spellcasting;
 
     /**
      * @var MulticlassModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\MulticlassModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\MulticlassModel")
      */
     public MulticlassModel $multiclass;
 
     /**
      * @var ExtractModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\ExtractModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\ExtractModel")
      * @Serializer\SkipWhenEmpty()
      */
     public ExtractModel $extract;
@@ -129,7 +129,7 @@ class ElementModel
     /**
      * @var SettersModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\SettersModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
      * @Serializer\SkipWhenEmpty()
      */
     public SettersModel $setter;

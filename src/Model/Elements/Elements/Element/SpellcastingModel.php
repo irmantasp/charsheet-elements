@@ -59,14 +59,14 @@ class SpellcastingModel
      *
      * @Serializer\SerializedName("extend")
      * @Serializer\XmlList(inline=true, entry="extend")
-     * @Serializer\Type("array<App\Model\Index\Elements\Element\Spellcasting\ExtendModel>")
+     * @Serializer\Type("array<App\Model\Elements\Elements\Element\Spellcasting\ExtendModel>")
      */
     public array $extends;
 
     /**
      * @var ListModel
      *
-     * @Serializer\Type("App\Model\Index\Elements\Element\Spellcasting\ListModel")
+     * @Serializer\Type("App\Model\Elements\Elements\Element\Spellcasting\ListModel")
      */
     public ListModel $list;
 
