@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="Burning Hands" type="Spell" source="Player’s Handbook" id="ID_PHB_SPELL_BURNING_HANDS">
+    <supports>Sorcerer, Wizard, Spell Saving Throw</supports>
+    <description>
+        <p>As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one.</p>
+        <p class="indent">The fire ignites any flammable objects in the area that aren’t being worn or carried.</p>
+        <p class="indent"><b><i>At Higher Levels.</i></b> When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</p>
+    </description>
+    <setters>
+        <set name="keywords">fire</set>
+        <set name="level">1</set>
+        <set name="school">Evocation</set>
+        <set name="time">1 action</set>
+        <set name="duration">Instantaneous</set>
+        <set name="range">Self (15-foot cone)</set>
+        <set name="hasVerbalComponent">true</set>
+        <set name="hasSomaticComponent">true</set>
+        <set name="hasMaterialComponent">false</set>
+        <set name="materialComponent" />
+        <set name="isConcentration">false</set>
+        <set name="isRitual">false</set>
+    </setters>
+</element>

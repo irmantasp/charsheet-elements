@@ -1,0 +1,68 @@
+<style>
+    .card {
+        font-family: "Times New Roman", serif;
+        font-size: 6pt;
+        line-height: 1;
+        width: 64mm;
+        height: 84mm;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    .card__title {
+        height: 5mm;
+        font-size: 8pt;
+        background: gray;
+        text-align: center;
+    }
+
+    .card__level {
+        text-align: center;
+    }
+
+    .card__ritual {
+        text-align: center;
+        font-size: 5pt;
+        color: gray;
+    }
+
+    .spell__attribute {
+        height: 3.5mm;
+        background: gray;
+    }
+</style>
+<table class="card">
+    <tr>
+        <td colspan="3" class="card__title">{{ item.name }}</td>
+    </tr>
+    <tr>
+        <td colspan="3" class="card__level">{{ item.level }}-level {{ item.school }}</td>
+    </tr>
+    {% if item.isRitual %}
+        <tr>
+            <td colspan="3" class="card__ritual">(ritual)</td>
+        </tr>
+    {% endif %}
+    <tr class="spell__attribute">
+        <td colspan="1">Casting time</td>
+        <td colspan="2">{{ item.time }}</td>
+    </tr>
+    <tr class="spell__attribute">
+        <td colspan="1">Range</td>
+        <td colspan="2">{{ item.range }}</td>
+    </tr>
+    <tr class="spell__attribute">
+        <td colspan="1">Duration</td>
+        <td colspan="2">{% if item.isConcentration %}Concentration, {% endif %}{{ item.duration }}</td>
+    </tr>
+    <tr class="spell__attribute">
+        <td colspan="1">Components</td>
+        <td colspan="2">{% if item.hasVerbalComponent %}V{% endif %} {% if item.hasSomaticComponent %}S{% endif %} {% if item.hasMaterialComponent %}M{% endif %}{% if item.materialComponent is not empty %}, {{ item.materialComponent }}{% endif %}</td>
+    </tr>
+    <tr>
+        <td colspan="3">{{ item.description|raw }}</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td colspan="2"> {{ item.source }}</td>
+    </tr>
+</table>

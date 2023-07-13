@@ -84,11 +84,12 @@ class ElementModel
     public string $requirements;
 
     /**
-     * @var SettersModel
+     * @var SettersModel|null
      *
      * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
+     * @Serializer\SkipWhenEmpty()
      */
-    public SettersModel $setters;
+    public ?SettersModel $setters = null;
 
     /**
      * @var string
@@ -127,10 +128,10 @@ class ElementModel
     public ExtractModel $extract;
 
     /**
-     * @var SettersModel
+     * @var SettersModel|null
      *
      * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
      * @Serializer\SkipWhenEmpty()
      */
-    public SettersModel $setter;
+    public ?SettersModel $setter = null;
 }
