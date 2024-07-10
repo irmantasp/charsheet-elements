@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Model\Index;
+namespace App\Tests\Model\Elements;
 
 use App\Model\Elements\ElementsModel;
 use JMS\Serializer\SerializerInterface;
