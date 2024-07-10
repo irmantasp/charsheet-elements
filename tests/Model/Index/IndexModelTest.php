@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Model\Source;
+namespace App\Tests\Model\Index;
 
 use App\Model\Index\Index\Info\AuthorModel;
 use App\Model\Index\Index\Info\Update\FileModel;
