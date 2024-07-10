@@ -77,9 +77,6 @@
     "egulias/email-validator": {
         "version": "3.1.2"
     },
-    "friendsofphp/proxy-manager-lts": {
-        "version": "v1.0.5"
-    },
     "jms/metadata": {
         "version": "2.6.1"
     },
@@ -99,9 +96,6 @@
             "./config/packages/jms_serializer.yaml",
             "./config/packages/prod/jms_serializer.yaml"
         ]
-    },
-    "laminas/laminas-code": {
-        "version": "4.5.1"
     },
     "monolog/monolog": {
         "version": "2.3.5"
@@ -377,9 +371,6 @@
         "version": "v5.4.3"
     },
     "symfony/property-info": {
-        "version": "v5.4.3"
-    },
-    "symfony/proxy-manager-bridge": {
         "version": "v5.4.3"
     },
     "symfony/routing": {
