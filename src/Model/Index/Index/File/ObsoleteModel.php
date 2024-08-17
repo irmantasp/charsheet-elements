@@ -4,26 +4,20 @@ namespace App\Model\Index\Index\File;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("obsolete")
- */
+#[Serializer\XmlRoot("obsolete")]
 class ObsoleteModel
 {
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $name;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $url;
 
     /**
@@ -36,7 +30,7 @@ class ObsoleteModel
 
     /**
      * @param string $name
-     * @return FileModel
+     * @return ObsoleteModel
      */
     final public function setName(string $name): ObsoleteModel
     {
@@ -54,7 +48,7 @@ class ObsoleteModel
 
     /**
      * @param string $url
-     * @return FileModel
+     * @return ObsoleteModel
      */
     final public function setUrl(string $url): ObsoleteModel
     {

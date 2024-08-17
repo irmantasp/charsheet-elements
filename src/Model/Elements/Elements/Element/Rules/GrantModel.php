@@ -4,73 +4,55 @@ namespace App\Model\Elements\Elements\Element\Rules;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("select")
- */
+#[Serializer\XmlRoot("select")]
 class GrantModel extends RuleModel
 {
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $type;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $id;
 
     /**
      * @var int
-     *
-     * @Serializer\Type("int")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public int $level;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $spellcasting;
 
     /**
      * @var bool
-     *
-     * @Serializer\Type("bool")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public bool $prepared;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $requirements;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $name;
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $equipped;
 }

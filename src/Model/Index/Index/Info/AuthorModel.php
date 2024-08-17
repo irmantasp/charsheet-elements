@@ -4,26 +4,21 @@ namespace App\Model\Index\Index\Info;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("author")
- */
+#[Serializer\XmlRoot("author")]
 class AuthorModel
 {
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlValue()
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\XmlValue]
+    #[Serializer\XmlElement(cdata: false)]
     public string $value;
 
     /**
      * @var string
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $url;
 
     /**

@@ -5,31 +5,24 @@ namespace App\Model\Elements\Elements;
 use App\Model\Elements\Elements\Element\RulesModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("append")
- */
+#[Serializer\XmlRoot("append")]
 class AppendModel
 {
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $id;
 
     /**
      * @var RulesModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\RulesModel")
      */
+    #[Serializer\Type(RulesModel::class)]
     public RulesModel $rules;
 
     /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\SkipWhenEmpty()
+     * @var string|null
      */
-    public string $supports;
+    #[Serializer\SkipWhenEmpty]
+    public ?string $supports = null;
 }

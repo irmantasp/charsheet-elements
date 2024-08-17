@@ -16,48 +16,40 @@ class CharacterModel
 
     /**
      * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $version;
 
     /**
      * @var bool
-     *
-     * @Serializer\Type("bool")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public bool $preview;
 
     /**
      * @var InformationModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\InformationModel")
      */
+    #[Serializer\Type(InformationModel::class)]
     public InformationModel $information;
 
     /**
      * @var DisplayPropertiesModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\DisplayPropertiesModel")
-     * @Serializer\SerializedName("display-properties")
      */
+    #[Serializer\Type(DisplayPropertiesModel::class)]
+    #[Serializer\SerializedName("display-properties")]
     public DisplayPropertiesModel $displayProperties;
 
     /**
      * @var BuildModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\BuildModel")
-     * @Serializer\SerializedName("build")
      */
+    #[Serializer\Type(BuildModel::class)]
+    #[Serializer\SerializedName("build")]
     public BuildModel $build;
 
     /**
      * @var SourcesModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\SourcesModel")
-     * @Serializer\SerializedName("sources")
      */
+    #[Serializer\Type(SourcesModel::class)]
+    #[Serializer\SerializedName("sources")]
     public SourcesModel $sources;
 }

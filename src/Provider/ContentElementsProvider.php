@@ -6,6 +6,7 @@ use App\Helper\SerializerHelperTrait;
 use App\Model\Elements\Elements\ElementModel;
 use App\Model\Elements\ElementsModel;
 use JMS\Serializer\SerializerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\PruneableInterface;
 use Symfony\Contracts\Cache\ItemInterface;
@@ -21,11 +22,18 @@ class ContentElementsProvider
 
     private PruneableInterface $cache;
 
-    public function __construct(SerializerInterface $serializer, string $indexDirectory)
+    private LoggerInterface $logger;
+
+    public function __construct(
+        SerializerInterface $serializer,
+        string $indexDirectory,
+        LoggerInterface $logger,
+    )
     {
         $this->serializer = $serializer;
         $this->indexDirectory = $indexDirectory;
         $this->cache = new FilesystemAdapter('elements');
+        $this->logger = $logger;
 
     }
 
@@ -58,10 +66,9 @@ class ContentElementsProvider
                     }
                 }
                 catch (\Throwable $throwable) {
+                    $this->logger->error($throwable->getMessage());
                     continue;
                 }
-
-
             }
 
             return $elements;

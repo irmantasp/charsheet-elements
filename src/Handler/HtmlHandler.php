@@ -3,6 +3,7 @@
 namespace App\Handler;
 
 use DOMDocument;
+use DOMElement;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\Exception\SkipHandlerException;
 use JMS\Serializer\GraphNavigatorInterface;
@@ -37,10 +38,7 @@ class HtmlHandler implements SubscribingHandlerInterface
 
     final public function serializeHTML(SerializationVisitorInterface $visitor, ?string $data, array $type, SerializationContext $context): ?\DOMElement
     {
-        $document = new \DomDocument('1.0', 'utf-8');
-        $document->strictErrorChecking = false;
-
-       return $document->createElement('description', $data);
+        return new \DOMElement('description', $data);
     }
 
     final public function deserializeHTML(DeserializationVisitorInterface $visitor, \SimpleXMLElement $element, array $type, DeserializationContext $context): ?string

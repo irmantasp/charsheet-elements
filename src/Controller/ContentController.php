@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContentController extends AbstractController
 {
     private ContentRepository $repository;
+    private ContentDirectoryProvider $contentDirectory;
 
     public function __construct(ContentRepository $contentRepository, ContentDirectoryProvider $contentDirectory)
     {

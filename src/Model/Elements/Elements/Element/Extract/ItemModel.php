@@ -4,23 +4,19 @@ namespace App\Model\Elements\Elements\Element\Extract;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("item")
- */
+#[Serializer\XmlRoot("item")]
 class ItemModel
 {
 
     /**
      * @var int
-     *
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public int $amount;
 
     /**
      * @var string
-     *
-     * @Serializer\XmlValue()
      */
+    #[Serializer\XmlValue]
     public string $value;
 }

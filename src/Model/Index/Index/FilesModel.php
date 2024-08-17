@@ -6,26 +6,21 @@ use App\Model\Index\Index\File\FileModel;
 use App\Model\Index\Index\File\ObsoleteModel;
 use JMS\Serializer\Annotation as Serializer;
 
-
-/**
- * @Serializer\XmlRoot("files")
- */
+#[Serializer\XmlRoot("files")]
 class FilesModel
 {
     /**
      * @var FileModel[]
-     *
-     * @Serializer\Type("array<App\Model\Index\Index\File\FileModel>")
-     * @Serializer\XmlList(inline=true, entry="file")
      */
+    #[Serializer\Type("array<" . FileModel::class. ">")]
+    #[Serializer\XmlList(entry: "file", inline: true)]
     public array $files = [];
 
     /**
      * @var ObsoleteModel[]
-     *
-     * @Serializer\Type("array<App\Model\Index\Index\File\ObsoleteModel>")
-     * @Serializer\XmlList(inline=true, entry="obsolete")
      */
+    #[Serializer\Type("array<" . ObsoleteModel::class .">")]
+    #[Serializer\XmlList(entry: "obsolete", inline: true)]
     public array $obsolete = [];
 
     /**

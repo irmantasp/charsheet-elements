@@ -9,27 +9,23 @@ use App\Property\FileInterfaceTrait;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\XmlDiscriminator;
 
-/**
- * @Serializer\XmlRoot("index")
- * @XmlDiscriminator(cdata=false)
- */
+#[Serializer\XmlRoot("index")]
+#[XmlDiscriminator(cdata: false)]
 class IndexModel implements FileInterface
 {
     use FileInterfaceTrait;
 
     /**
      * @var InfoModel
-     *
-     * @Serializer\Type("App\Model\Index\Index\InfoModel")
      */
+    #[Serializer\Type(InfoModel::class)]
     public InfoModel $info;
 
     /**
      * @var FilesModel
-     *
-     * @Serializer\Type("App\Model\Index\Index\FilesModel")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\Type(FilesModel::class)]
+    #[Serializer\SkipWhenEmpty]
     public FilesModel $files;
 
     /**

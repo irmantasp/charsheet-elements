@@ -9,33 +9,27 @@ use App\Property\FileInterface;
 use App\Property\FileInterfaceTrait;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("elements")
- */
+#[Serializer\XmlRoot("elements")]
 class ElementsModel implements FileInterface
 {
     use FileInterfaceTrait;
 
     /**
      * @var InfoModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\InfoModel")
      */
+    #[Serializer\Type(InfoModel::class)]
     public InfoModel $info;
 
     /**
      * @var ElementModel[]
-     *
-     * @Serializer\Type("array<App\Model\Elements\Elements\ElementModel>")
-     * @Serializer\XmlList(inline=true, entry="element")
      */
+    #[Serializer\Type("array<" . ElementModel::class . ">")]
+    #[Serializer\XmlList(entry: "element", inline: true)]
     public array $elements;
 
     /**
-     * @var AppendModel[]
-     *
-     * @Serializer\Type("array<App\Model\Elements\Elements\AppendModel>")
-     * @Serializer\XmlList(inline=true, entry="append")
      */
+    #[Serializer\Type("array<" . AppendModel::class . ">")]
+    #[Serializer\XmlList(inline: true, entry: "append")]
     public array $append;
 }

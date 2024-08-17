@@ -6,41 +6,33 @@ use App\Model\Index\Index\Info\AuthorModel;
 use App\Model\Index\Index\Info\UpdateModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("info")
- */
+#[Serializer\XmlRoot("info")]
 class InfoModel
 {
     /**
      * @var string|null
-     *
-     * @Serializer\Type("string")
-     * @Serializer\SkipWhenEmpty()
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\SkipWhenEmpty]
+    #[Serializer\XmlElement(cdata: false)]
     public ?string $name = null;
 
     /**
      * @var string|null
-     *
-     * @Serializer\Type("string")
-     * @Serializer\SkipWhenEmpty()
-     * @Serializer\XmlElement(cdata=false)
      */
+    #[Serializer\SkipWhenEmpty]
+    #[Serializer\XmlElement(cdata: false)]
     public ?string $description = null;
 
     /**
      * @var AuthorModel|null
-     *
-     * @Serializer\Type("App\Model\Index\Index\Info\AuthorModel")
      */
+    #[Serializer\Type(AuthorModel::class)]
     public ?AuthorModel $author = null;
 
     /**
      * @var UpdateModel|null
-     *
-     * @Serializer\Type("App\Model\Index\Index\Info\UpdateModel")
      */
+    #[Serializer\Type(UpdateModel::class)]
     public ?UpdateModel $update = null;
 
     /**

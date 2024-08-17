@@ -17,8 +17,8 @@ class DisplayPropertiesModel
      *
      * @Serializer\Type("bool")
      * @Serializer\SerializedName("favorite")
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public bool $favorite;
 
     /**
