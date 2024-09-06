@@ -20,7 +20,7 @@ class SourceManagerTest extends KernelTestCase
 
         $this->sourceManager = $container->get(SourcesManager::class);
         $this->serializer = $container->get('jms_serializer');
-        $this->directory = __DIR__ . '/fixtures/' . $this->getName(false) . '/';
+        $this->directory = __DIR__ . '/fixtures/' . $this->name() . '/';
     }
 
     final public function testRestrictSourceElementsFromLostMineOfPhandelverSource(): void

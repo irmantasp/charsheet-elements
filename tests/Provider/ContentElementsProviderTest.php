@@ -4,6 +4,7 @@ namespace App\Tests\Provider;
 
 use App\Model\Elements\Elements\ElementModel;
 use App\Provider\ContentElementsProvider;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ContentElementsProviderTest extends KernelTestCase
@@ -35,11 +36,7 @@ class ContentElementsProviderTest extends KernelTestCase
         }
     }
 
-    /**
-     * @param string $expected
-     *
-     * @dataProvider provideTestGetElementsByTypeData
-     */
+    #[DataProvider('provideTestGetElementsByTypeData')]
     final public function testGetElementsByType(string $expected): void
     {
         $elements = $this->contentElementsProvider->getElementsByType($expected);
@@ -53,7 +50,7 @@ class ContentElementsProviderTest extends KernelTestCase
         }
     }
 
-    final public function provideTestGetElementsByTypeData(): array
+    final public static function provideTestGetElementsByTypeData(): array
     {
         return [
             ['Source'],
