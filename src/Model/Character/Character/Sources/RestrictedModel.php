@@ -20,10 +20,6 @@ class RestrictedModel
 
     /**
      * @var ElementModel[]|null
-     *
-     * @
-     * @
-     * @Serializer\SkipWhenEmpty()
      */
     #[Serializer\Type("array<" . ElementModel::class . ">")]
     #[Serializer\XmlList(entry:"element", inline:true)]

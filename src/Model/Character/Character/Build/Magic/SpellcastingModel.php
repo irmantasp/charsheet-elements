@@ -7,66 +7,57 @@ use App\Model\Character\Character\Build\Magic\Spellcasting\SlotsModel;
 use App\Model\Character\Character\Build\Magic\Spellcasting\SpellsModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("spellcasting")
- */
+#[Serializer\XmlRoot('spellcasting')]
 class SpellcastingModel
 {
     /**
      * @var string
-     *
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $name;
 
     /**
      * @var string
-     *
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $ability;
 
     /**
      * @var int
-     *
-     * @Serializer\XmlAttribute()
      * @Serializer\Type("integer")
      */
+    #[Serializer\XmlAttribute]
     public int $attack;
 
     /**
      * @var int
      *
-     * @Serializer\XmlAttribute()
      * @Serializer\Type("integer")
      */
+    #[Serializer\XmlAttribute]
     public int $dc;
 
     /**
      * @var string
-     *
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $source;
 
     /**
      * @var SlotsModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Magic\Spellcasting\SlotsModel")
      */
+    #[Serializer\Type(SlotsModel::class)]
     public SlotsModel $slots;
 
     /**
      * @var CantripsModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Magic\Spellcasting\CantripsModel")
      */
+    #[Serializer\Type(CantripsModel::class)]
     public CantripsModel $cantrips;
 
     /**
      * @var SpellsModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Magic\Spellcasting\SpellsModel")
      */
+    #[Serializer\Type(SpellsModel::class)]
     public SpellsModel $spells;
 }

@@ -9,9 +9,7 @@ use App\Model\Character\Character\Build\Input\NotesModel;
 use App\Model\Character\Character\Build\Input\OrganizationModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("input")
- */
+#[Serializer\XmlRoot('input')]
 class InputModel
 {
     /**
@@ -49,9 +47,9 @@ class InputModel
     /**
      * @var AttacksModel
      *
-     * @Serializer\Type("App\Model\Character\Character\Build\Input\AttacksModel")
      * @Serializer\SerializedName("attacks")
      */
+    #[Serializer\Type(AttacksModel::class)]
     public AttacksModel $attacks;
 
     /**
@@ -104,16 +102,14 @@ class InputModel
 
     /**
      * @var BackgroundModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Input\BackgroundModel")
      */
+    #[Serializer\Type(BackgroundModel::class)]
     public BackgroundModel $background;
 
     /**
      * @var OrganizationModel|null
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Input\OrganizationModel")
      */
+    #[Serializer\Type(OrganizationModel::class)]
     public ?OrganizationModel $organization;
 
     /**
@@ -126,16 +122,14 @@ class InputModel
 
     /**
      * @var CurrencyModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Input\CurrencyModel")
      */
+    #[Serializer\Type(CurrencyModel::class)]
     public CurrencyModel $currency;
 
     /**
      * @var NotesModel
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Input\NotesModel")
      */
+    #[Serializer\Type(NotesModel::class)]
     public NotesModel $notes;
 
     /**

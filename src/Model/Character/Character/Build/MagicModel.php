@@ -6,41 +6,38 @@ use App\Model\Character\Character\Build\Magic\AdditionalModel;
 use App\Model\Character\Character\Build\Magic\SpellcastingModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("magic")
- */
+#[Serializer\XmlRoot('magic')]
 class MagicModel
 {
 
     /**
      * @var bool
      *
-     * @Serializer\XmlAttribute()
      * @Serializer\Type("bool")
      */
+    #[Serializer\XmlAttribute]
     public bool $multiclass;
 
     /**
      * @var int
      *
-     * @Serializer\XmlAttribute()
      * @Serializer\Type("integer")
      */
+    #[Serializer\XmlAttribute]
     public int $level;
 
     /**
      * @var SpellcastingModel[]
-     * @Serializer\Type("array<App\Model\Character\Character\Build\Magic\SpellcastingModel>")
-     * @Serializer\XmlList(inline=true, entry="spellcasting")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\Type('array<' . SpellcastingModel::class . '>')]
+    #[Serializer\XmlList(entry: 'spellcasting', inline: true)]
+    #[Serializer\SkipWhenEmpty]
     public array $spellcasting;
 
     /**
      * @var AdditionalModel|null
-     *
-     * @Serializer\Type("App\Model\Character\Character\Build\Magic\AdditionalModel")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\Type(AdditionalModel::class)]
+    #[Serializer\SkipWhenEmpty]
     public ?AdditionalModel $additional;
 }

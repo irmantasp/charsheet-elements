@@ -7,13 +7,13 @@ use JMS\Serializer\Annotation as Serializer;
 /**
  * @Serializer\XmlRoot("feature")
  */
+#[Serializer\XmlRoot('feature')]
 class FeatureModel
 {
     /**
      * @var string
-     *
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $name;
 
     /**

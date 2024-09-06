@@ -4,9 +4,7 @@ namespace App\Model\Character\Character\DisplayProperties;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("portrait")
- */
+#[Serializer\XmlRoot('portrait')]
 class PortraitModel
 {
 
@@ -15,8 +13,8 @@ class PortraitModel
      *
      * @Serializer\Type("string")
      * @Serializer\SerializedName("companion")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\SkipWhenEmpty]
     public ?string $companion;
 
     /**
@@ -24,8 +22,8 @@ class PortraitModel
      *
      * @Serializer\Type("string")
      * @Serializer\SerializedName("local")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\SkipWhenEmpty]
     public ?string $local;
 
     /**
@@ -33,7 +31,7 @@ class PortraitModel
      *
      * @Serializer\Type("string")
      * @Serializer\SerializedName("base64")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\SkipWhenEmpty]
     public ?string $base64;
 }

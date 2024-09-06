@@ -12,15 +12,13 @@ class PortraitModel
 
     /**
      * @var string
-     *
-     * @Serializer\XmlAttribute()
      */
+    #[Serializer\XmlAttribute]
     public string $location;
 
     /**
      * @var string
-     *
-     * @Serializer\XmlValue()
      */
+    #[Serializer\XmlValue]
     public string $value;
 }

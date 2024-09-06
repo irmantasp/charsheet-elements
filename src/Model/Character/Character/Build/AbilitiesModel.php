@@ -4,9 +4,7 @@ namespace App\Model\Character\Character\Build;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("abilities")
- */
+#[Serializer\XmlRoot('abilities')]
 class AbilitiesModel
 {
     /**
@@ -14,9 +12,9 @@ class AbilitiesModel
      *
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("available-points")
-     * @Serializer\XmlAttribute()
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\XmlAttribute]
+    #[Serializer\SkipWhenEmpty]
     public ?int $availablePoints;
 
     /**

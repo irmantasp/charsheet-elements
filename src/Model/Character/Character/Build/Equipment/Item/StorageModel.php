@@ -7,6 +7,7 @@ use JMS\Serializer\Annotation as Serializer;
 /**
  * @Serializer\XmlRoot("storage")
  */
+#[Serializer\XmlRoot('storage')]
 class StorageModel
 {
 
@@ -14,7 +15,7 @@ class StorageModel
      * @var string|null
      *
      * @Serializer\Type("string")
-     * @Serializer\SkipWhenEmpty()
      */
+    #[Serializer\SkipWhenEmpty]
     public ?string $location;
 }

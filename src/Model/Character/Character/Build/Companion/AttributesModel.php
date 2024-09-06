@@ -4,9 +4,7 @@ namespace App\Model\Character\Character\Build\Companion;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("attributes")
- */
+#[Serializer\XmlRoot('attributes')]
 class AttributesModel
 {
     /**
