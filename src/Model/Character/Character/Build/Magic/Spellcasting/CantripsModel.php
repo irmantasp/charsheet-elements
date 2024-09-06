@@ -8,5 +8,4 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('cantrips')]
 class CantripsModel extends SpellCollectionModel
 {
-
 }

@@ -8,10 +8,6 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('items')]
 class ItemsModel
 {
-
-    /**
-     * @var AdornerModel
-     */
     #[Serializer\Type(AdornerModel::class)]
     public AdornerModel $adorner;
 }

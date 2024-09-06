@@ -12,5 +12,4 @@ class OrganizationModel
     public string $symbol;
 
     public string $allies;
-
 }

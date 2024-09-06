@@ -8,19 +8,14 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('sum')]
 class SumModel
 {
-
-    /**
-     * @var int
-     *
-     * @Serializer\SerializedName("element-count")
-     */
+    #[Serializer\SerializedName('element-count')]
     #[Serializer\XmlAttribute]
     public int $elementCount;
 
     /**
      * @var ElementModel[]
      */
-    #[Serializer\Type('array<' . ElementModel::class . '>')]
+    #[Serializer\Type('array<'.ElementModel::class.'>')]
     #[Serializer\XmlList(entry: 'element', inline: true)]
     public array $elements;
 }

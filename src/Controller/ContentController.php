@@ -29,6 +29,7 @@ class ContentController extends AbstractController
         $content = array_map(function (Content $content) {
             $index = $this->contentDirectory->get($content->getPath());
             $content->__index = $index;
+
             return $content;
         }, $content);
 

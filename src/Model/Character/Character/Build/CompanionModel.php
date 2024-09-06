@@ -11,30 +11,14 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('companion')]
 class CompanionModel
 {
-
-    /**
-     * @var string
-     */
     #[Serializer\XmlAttribute]
     public string $name;
 
-    /**
-     * @var AttributesModel
-     */
     public AttributesModel $attributes;
 
-    /**
-     * @var SavesModel
-     */
     public SavesModel $saves;
 
-    /**
-     * @var SkillsModel
-     */
     public SkillsModel $skills;
 
-    /**
-     * @var PortraitModel
-     */
     public PortraitModel $portrait;
 }

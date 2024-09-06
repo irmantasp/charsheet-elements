@@ -12,14 +12,14 @@ class EquipmentModel
     /**
      * @var StorageModel[]
      */
-    #[Serializer\Type('array<' . StorageModel::class . '>')]
+    #[Serializer\Type('array<'.StorageModel::class.'>')]
     #[Serializer\XmlList(entry: 'storage', inline: true)]
     public array $storage;
 
     /**
      * @var ItemModel[]
      */
-    #[Serializer\Type('array<' . ItemModel::class . '>')]
+    #[Serializer\Type('array<'.ItemModel::class.'>')]
     #[Serializer\XmlList(entry: 'item', inline: true)]
     public array $items;
 }

@@ -9,34 +9,22 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('magic')]
 class MagicModel
 {
-
-    /**
-     * @var bool
-     *
-     * @Serializer\Type("bool")
-     */
+    #[Serializer\Type('bool')]
     #[Serializer\XmlAttribute]
     public bool $multiclass;
 
-    /**
-     * @var int
-     *
-     * @Serializer\Type("integer")
-     */
+    #[Serializer\Type('integer')]
     #[Serializer\XmlAttribute]
     public int $level;
 
     /**
      * @var SpellcastingModel[]
      */
-    #[Serializer\Type('array<' . SpellcastingModel::class . '>')]
+    #[Serializer\Type('array<'.SpellcastingModel::class.'>')]
     #[Serializer\XmlList(entry: 'spellcasting', inline: true)]
     #[Serializer\SkipWhenEmpty]
     public array $spellcasting;
 
-    /**
-     * @var AdditionalModel|null
-     */
     #[Serializer\Type(AdditionalModel::class)]
     #[Serializer\SkipWhenEmpty]
     public ?AdditionalModel $additional;

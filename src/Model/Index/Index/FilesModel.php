@@ -6,57 +6,44 @@ use App\Model\Index\Index\File\FileModel;
 use App\Model\Index\Index\File\ObsoleteModel;
 use JMS\Serializer\Annotation as Serializer;
 
-#[Serializer\XmlRoot("files")]
+#[Serializer\XmlRoot('files')]
 class FilesModel
 {
     /**
      * @var FileModel[]
      */
-    #[Serializer\Type("array<" . FileModel::class. ">")]
-    #[Serializer\XmlList(entry: "file", inline: true)]
+    #[Serializer\Type('array<'.FileModel::class.'>')]
+    #[Serializer\XmlList(entry: 'file', inline: true)]
     public array $files = [];
 
     /**
      * @var ObsoleteModel[]
      */
-    #[Serializer\Type("array<" . ObsoleteModel::class .">")]
-    #[Serializer\XmlList(entry: "obsolete", inline: true)]
+    #[Serializer\Type('array<'.ObsoleteModel::class.'>')]
+    #[Serializer\XmlList(entry: 'obsolete', inline: true)]
     public array $obsolete = [];
 
-    /**
-     * @return array
-     */
     final public function getFiles(): array
     {
         return $this->files;
     }
 
-    /**
-     * @param array $files
-     * @return FilesModel
-     */
     final public function setFiles(array $files): FilesModel
     {
         $this->files = $files;
+
         return $this;
     }
 
-    /**
-     * @return array
-     */
     final public function getObsolete(): array
     {
         return $this->obsolete;
     }
 
-    /**
-     * @param array $obsolete
-     * @return FilesModel
-     */
     final public function setObsolete(array $obsolete): FilesModel
     {
         $this->obsolete = $obsolete;
+
         return $this;
     }
-
 }

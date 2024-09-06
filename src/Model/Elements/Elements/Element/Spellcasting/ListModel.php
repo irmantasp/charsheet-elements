@@ -4,18 +4,12 @@ namespace App\Model\Elements\Elements\Element\Spellcasting;
 
 use JMS\Serializer\Annotation as Serializer;
 
-#[Serializer\XmlRoot("list")]
+#[Serializer\XmlRoot('list')]
 class ListModel
 {
-    /**
-     * @var bool
-     */
     #[Serializer\XmlAttribute]
     public bool $known;
 
-    /**
-     * @var string
-     */
     #[Serializer\XmlValue]
     public string $value;
 }

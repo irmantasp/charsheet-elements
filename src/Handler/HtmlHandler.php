@@ -2,10 +2,7 @@
 
 namespace App\Handler;
 
-use DOMDocument;
-use DOMElement;
 use JMS\Serializer\DeserializationContext;
-use JMS\Serializer\Exception\SkipHandlerException;
 use JMS\Serializer\GraphNavigatorInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\SerializationContext;
@@ -14,10 +11,6 @@ use JMS\Serializer\Visitor\SerializationVisitorInterface;
 
 class HtmlHandler implements SubscribingHandlerInterface
 {
-
-    /**
-     * @inheritDoc
-     */
     public static function getSubscribingMethods(): array
     {
         return [

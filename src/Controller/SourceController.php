@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SourceController extends AbstractController
 {
     private ContentElementsProvider $contentElementsProvider;
+
     public function __construct(ContentElementsProvider $contentElementsProvider)
     {
         $this->contentElementsProvider = $contentElementsProvider;
@@ -36,33 +37,33 @@ class SourceController extends AbstractController
             }
 
             $sourceType = null;
-            if (isset($resolution['official']) && $resolution['official'] === 'true') {
-                if (isset($resolution['core']) && $resolution['core'] === 'true') {
+            if (isset($resolution['official']) && 'true' === $resolution['official']) {
+                if (isset($resolution['core']) && 'true' === $resolution['core']) {
                     $sourceType = 'wotc';
                 }
 
-                if (isset($resolution['supplement']) && $resolution['supplement'] === 'true') {
+                if (isset($resolution['supplement']) && 'true' === $resolution['supplement']) {
                     $sourceType = 'wotc';
                 }
 
-                if (isset($resolution['league']) && $resolution['league'] === 'true') {
+                if (isset($resolution['league']) && 'true' === $resolution['league']) {
                     $sourceType = 'league';
                 }
 
-                if (isset($resolution['playtest']) && $resolution['playtest'] === 'true' && (!isset($resolution['supplement']) || $resolution['supplement'] === 'false')) {
+                if (isset($resolution['playtest']) && 'true' === $resolution['playtest'] && (!isset($resolution['supplement']) || 'false' === $resolution['supplement'])) {
                     $sourceType = 'unearthed-arcana';
                 }
             }
 
-            if (isset($resolution['third-party']) && $resolution['third-party'] === 'true') {
+            if (isset($resolution['third-party']) && 'true' === $resolution['third-party']) {
                 $sourceType = 'third-party';
             }
 
-            if (isset($resolution['homebrew']) && $resolution['homebrew'] === 'true') {
+            if (isset($resolution['homebrew']) && 'true' === $resolution['homebrew']) {
                 $sourceType = 'homebrew';
             }
 
-            if ($sourceType === null) {
+            if (null === $sourceType) {
                 $sourceType = 'undefined';
             }
 
@@ -71,5 +72,4 @@ class SourceController extends AbstractController
 
         return $this->render('source/list.html.twig', ['content' => $list]);
     }
-
 }

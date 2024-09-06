@@ -7,5 +7,4 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('additional')]
 class AdditionalModel extends SpellCollectionModel
 {
-
 }

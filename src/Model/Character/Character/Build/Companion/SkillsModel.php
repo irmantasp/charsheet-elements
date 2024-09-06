@@ -8,11 +8,10 @@ use JMS\Serializer\Annotation as Serializer;
 #[Serializer\XmlRoot('skills')]
 class SkillsModel
 {
-
     /**
      * @var SkillModel[]
      */
-    #[Serializer\Type('array<' . SkillModel::class . '>')]
+    #[Serializer\Type('array<'.SkillModel::class.'>')]
     #[Serializer\XmlList(entry: 'skill', inline: true)]
     public array $skills;
 }
