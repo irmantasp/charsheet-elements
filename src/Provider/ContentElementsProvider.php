@@ -6,13 +6,13 @@ use App\Helper\SerializerHelperTrait;
 use App\Model\Elements\Elements\ElementModel;
 use App\Model\Elements\ElementsModel;
 use JMS\Serializer\SerializerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\PruneableInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
 class ContentElementsProvider
 {
-
     use SerializerHelperTrait;
 
     private SerializerInterface $serializer;
@@ -21,12 +21,17 @@ class ContentElementsProvider
 
     private PruneableInterface $cache;
 
-    public function __construct(SerializerInterface $serializer, string $indexDirectory)
-    {
+    private LoggerInterface $logger;
+
+    public function __construct(
+        SerializerInterface $serializer,
+        string $indexDirectory,
+        LoggerInterface $logger,
+    ) {
         $this->serializer = $serializer;
         $this->indexDirectory = $indexDirectory;
         $this->cache = new FilesystemAdapter('elements');
-
+        $this->logger = $logger;
     }
 
     final public function getElementsFromIndexDirectory(): array
@@ -37,12 +42,12 @@ class ContentElementsProvider
             $indexTree = new \RecursiveTreeIterator(new \RecursiveDirectoryIterator($this->indexDirectory, \FilesystemIterator::SKIP_DOTS));
             $elements = [];
             foreach ($indexTree as $entry => $value) {
-                if (str_contains($entry, '.xml') === false) {
+                if (false === str_contains($entry, '.xml')) {
                     continue;
                 }
 
                 $content = file_get_contents($entry);
-                if ($content === false) {
+                if (false === $content) {
                     continue;
                 }
 
@@ -56,12 +61,10 @@ class ContentElementsProvider
                             $elements[$element->id] = $element;
                         }
                     }
-                }
-                catch (\Throwable $throwable) {
+                } catch (\Throwable $throwable) {
+                    $this->logger->error($throwable->getMessage());
                     continue;
                 }
-
-
             }
 
             return $elements;

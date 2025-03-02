@@ -4,11 +4,9 @@ namespace App\Helper;
 
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\SerializerInterface;
 
 trait SerializerHelperTrait
 {
-
     final public function serialize($data, string $format, ?SerializationContext $context = null, ?string $type = null): string
     {
         return $this->serializer->serialize($data, $format, $context, $type);

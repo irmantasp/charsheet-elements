@@ -6,24 +6,20 @@ use App\Model\Character\Character\Build\Equipment\ItemModel;
 use App\Model\Character\Character\Build\Equipment\StorageModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("equipment")
- */
+#[Serializer\XmlRoot('equipment')]
 class EquipmentModel
 {
     /**
      * @var StorageModel[]
-     *
-     * @Serializer\Type("array<App\Model\Character\Character\Build\Equipment\StorageModel>")
-     * @Serializer\XmlList(inline=true, entry="storage")
      */
+    #[Serializer\Type('array<'.StorageModel::class.'>')]
+    #[Serializer\XmlList(entry: 'storage', inline: true)]
     public array $storage;
 
     /**
      * @var ItemModel[]
-     *
-     * @Serializer\Type("array<App\Model\Character\Character\Build\Equipment\ItemModel>")
-     * @Serializer\XmlList(inline=true, entry="item")
      */
+    #[Serializer\Type('array<'.ItemModel::class.'>')]
+    #[Serializer\XmlList(entry: 'item', inline: true)]
     public array $items;
 }

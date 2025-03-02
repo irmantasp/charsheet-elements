@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContentController extends AbstractController
 {
     private ContentRepository $repository;
+    private ContentDirectoryProvider $contentDirectory;
 
     public function __construct(ContentRepository $contentRepository, ContentDirectoryProvider $contentDirectory)
     {
@@ -28,6 +29,7 @@ class ContentController extends AbstractController
         $content = array_map(function (Content $content) {
             $index = $this->contentDirectory->get($content->getPath());
             $content->__index = $index;
+
             return $content;
         }, $content);
 

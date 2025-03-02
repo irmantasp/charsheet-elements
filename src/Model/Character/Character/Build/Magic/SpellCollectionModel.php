@@ -4,17 +4,12 @@ namespace App\Model\Character\Character\Build\Magic;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- *
- */
 abstract class SpellCollectionModel
 {
-
     /**
      * @var SpellModel[]
-     *
-     * @Serializer\Type("array<App\Model\Character\Character\Build\Magic\SpellModel>")
-     * @Serializer\XmlList(inline=true, entry="spell")
      */
+    #[Serializer\Type('array<'.SpellModel::class.'>')]
+    #[Serializer\XmlList(entry: 'spell', inline: true)]
     public array $spells;
 }

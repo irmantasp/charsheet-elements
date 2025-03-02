@@ -11,12 +11,11 @@ use JMS\Serializer\EventDispatcher\PreDeserializeEvent;
 
 class RuleDeserializationEventSubscriber implements EventSubscriberInterface
 {
-
     public const RULE_TYPE_GRANT = 'grant';
 
     public const RULE_TYPE_SELECT = 'select';
 
-    PUBLIC const RULE_TYPE_STAT = 'stat';
+    public const RULE_TYPE_STAT = 'stat';
 
     public array $mapping = [
         self::RULE_TYPE_GRANT => GrantModel::class,
@@ -24,9 +23,6 @@ class RuleDeserializationEventSubscriber implements EventSubscriberInterface
         self::RULE_TYPE_STAT => StatisticsModel::class,
     ];
 
-    /**
-     * @inheritDoc
-     */
     public static function getSubscribedEvents(): array
     {
         return [

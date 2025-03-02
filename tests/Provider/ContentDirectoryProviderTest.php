@@ -3,6 +3,7 @@
 namespace App\Tests\Provider;
 
 use App\Provider\ContentDirectoryProvider;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ContentDirectoryProviderTest extends KernelTestCase
@@ -20,9 +21,7 @@ class ContentDirectoryProviderTest extends KernelTestCase
         $this->indexDirectory = $container->getParameter('app.dir.index');
     }
 
-    /**
-     * @dataProvider provideTestGetFromUrlData
-     */
+    #[DataProvider('provideTestGetFromUrlData')]
     final public function testPersist(string $url): void
     {
         $result = $this->contentDirectoryProvider->persist($url);
@@ -32,7 +31,7 @@ class ContentDirectoryProviderTest extends KernelTestCase
         $this->assertEquals(file_get_contents($url), file_get_contents($result));
     }
 
-    final public function provideTestGetFromUrlData(): array
+    final public static function provideTestGetFromUrlData(): array
     {
         return [
             'Core' => ['https://raw.githubusercontent.com/AuroraLegacy/elements/master/core.index'],

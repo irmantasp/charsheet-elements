@@ -4,23 +4,12 @@ namespace App\Model\Character\Character\Build\Sum;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("element")
- */
+#[Serializer\XmlRoot('element')]
 class ElementModel
 {
-    /**
-     * @var string
-     *
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $type;
 
-    /**
-     * @var string
-     *
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $id;
-
 }

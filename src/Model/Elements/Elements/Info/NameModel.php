@@ -4,24 +4,12 @@ namespace App\Model\Elements\Elements\Info;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("name")
- */
+#[Serializer\XmlRoot('name')]
 class NameModel
 {
-
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlValue()
-     */
+    #[Serializer\XmlValue]
     public string $value;
 
-    /**
-     * @var string
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $url;
 }

@@ -4,9 +4,7 @@ namespace App\Model\Character\Character\Build\Input;
 
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("organization")
- */
+#[Serializer\XmlRoot('organization')]
 class OrganizationModel
 {
     public string $name;
@@ -14,5 +12,4 @@ class OrganizationModel
     public string $symbol;
 
     public string $allies;
-
 }

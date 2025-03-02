@@ -3,8 +3,17 @@
 {% block body %}
     {% if content is not empty %}
         <ul>
-            {% for sourceId, element in content %}
-                <li>{{ element.name }}</li>
+            {% for sourceType, sources in content %}
+                <li>
+                    <span>{{ sourceType }}</span>
+                    {% if sources is not empty %}
+                    <ul>
+                        {% for sourceId, element in sources %}
+                            <li>{{ element.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
             {% endfor %}
         </ul>
     {% endif %}

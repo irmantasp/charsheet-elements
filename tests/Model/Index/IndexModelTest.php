@@ -24,14 +24,6 @@ class IndexModelTest extends KernelTestCase
         $this->file = file_get_contents(__DIR__ . '/example.index');
     }
 
-    final public function tearDown(): void
-    {
-        parent::tearDown();
-
-        $this->serializer = null;
-        $this->file = null;
-    }
-
     final public function testIndexModelDeserialize(): void
     {
         $model = $this->serializer->deserialize($this->file, IndexModel::class, 'xml');

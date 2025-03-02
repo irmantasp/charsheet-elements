@@ -38,7 +38,7 @@ class RestrictedElementsContentElementsProvider
 
     private function restrict(array $elements): array
     {
-        if ($this->getRestrictions() === null) {
+        if (null === $this->getRestrictions()) {
             return $elements;
         }
 
@@ -50,10 +50,9 @@ class RestrictedElementsContentElementsProvider
         return $elements;
     }
 
-
     final public function getElementsFromIndexDirectory(): array
     {
-        if ($this->getRestrictions() === null) {
+        if (null === $this->getRestrictions()) {
             return $this->elementsProvider->getElementsFromIndexDirectory();
         }
 
@@ -62,10 +61,9 @@ class RestrictedElementsContentElementsProvider
 
             $elements = $this->elementsProvider->getElementsFromIndexDirectory();
 
-            return  $this->restrict($elements);
+            return $this->restrict($elements);
         });
     }
-
 
     final public function getElementsByType(string $type): array
     {
@@ -111,6 +109,4 @@ class RestrictedElementsContentElementsProvider
             return str_contains($element->description, $description);
         });
     }
-
-
 }

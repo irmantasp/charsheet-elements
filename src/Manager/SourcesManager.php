@@ -11,6 +11,7 @@ use App\Provider\ContentElementsProvider;
 class SourcesManager
 {
     private ContentElementsProvider $contentElementsProvider;
+
     public function __construct(ContentElementsProvider $contentElementsProvider)
     {
         $this->contentElementsProvider = $contentElementsProvider;
@@ -20,10 +21,10 @@ class SourcesManager
     {
         $sources = $this->contentElementsProvider->getElementsByType('Source');
         $sources = array_filter($sources, static function (ElementModel $source) use ($sourceName) {
-           return $source->name === $sourceName;
+            return $source->name === $sourceName;
         });
 
-        if (count($sources) !== 1) {
+        if (1 !== count($sources)) {
             throw new \RuntimeException('No source found.');
         }
 
@@ -58,7 +59,7 @@ class SourcesManager
         $sources = array_filter($sources, static function (ElementModel $source) {
             $setters = $source->setters;
             foreach ($setters->setters as $setter) {
-                if ($setter->name === 'playtest' && $setter->value === 'true') {
+                if ('playtest' === $setter->name && 'true' === $setter->value) {
                     return true;
                 }
             }
@@ -66,7 +67,7 @@ class SourcesManager
             return false;
         });
 
-        if (count($sources) === 0) {
+        if (0 === count($sources)) {
             throw new \RuntimeException('No playtest sources found.');
         }
 

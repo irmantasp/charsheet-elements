@@ -3,7 +3,6 @@
 namespace App\Handler;
 
 use JMS\Serializer\DeserializationContext;
-use JMS\Serializer\Exception\SkipHandlerException;
 use JMS\Serializer\GraphNavigatorInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\SerializationContext;
@@ -12,10 +11,6 @@ use JMS\Serializer\Visitor\SerializationVisitorInterface;
 
 class HtmlHandler implements SubscribingHandlerInterface
 {
-
-    /**
-     * @inheritDoc
-     */
     public static function getSubscribingMethods(): array
     {
         return [
@@ -36,7 +31,7 @@ class HtmlHandler implements SubscribingHandlerInterface
 
     final public function serializeHTML(SerializationVisitorInterface $visitor, ?string $data, array $type, SerializationContext $context): ?\DOMElement
     {
-       return new \DOMElement('description', $data);
+        return new \DOMElement('description', $data);
     }
 
     final public function deserializeHTML(DeserializationVisitorInterface $visitor, \SimpleXMLElement $element, array $type, DeserializationContext $context): ?string

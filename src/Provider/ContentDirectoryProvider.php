@@ -38,7 +38,7 @@ class ContentDirectoryProvider
             throw new \RuntimeException();
         }
 
-        if ($baseUrl === null) {
+        if (null === $baseUrl) {
             $filePath = sprintf('%s/%s', $this->indexDirectory, $info->getFilename());
             $filePath = new \SplFileInfo($filePath);
 
@@ -47,13 +47,12 @@ class ContentDirectoryProvider
             }
 
             $result = file_put_contents($filePath->getPathname(), $content);
-            if ($result === false) {
+            if (false === $result) {
                 throw new \RuntimeException();
             }
 
             $baseUrl = $info->getPath();
-        }
-        else {
+        } else {
             $fileDir = str_replace(sprintf('%s/', $baseUrl), '', $info->getPath());
             $filePath = sprintf('%s/%s/%s', $this->indexDirectory, $fileDir, $info->getFilename());
             $filePath = new \SplFileInfo($filePath);
@@ -63,12 +62,12 @@ class ContentDirectoryProvider
             }
 
             $result = file_put_contents($filePath->getPathname(), $content);
-            if ($result === false) {
+            if (false === $result) {
                 throw new \RuntimeException();
             }
         }
 
-        if ($info->getExtension() === 'index') {
+        if ('index' === $info->getExtension()) {
             /** @var IndexModel $indexModel */
             $indexModel = $this->deserialize($content, IndexModel::class, 'xml');
             $indexModelFilesModel = $indexModel->getFiles();
@@ -88,25 +87,24 @@ class ContentDirectoryProvider
     {
         $info = new \SplFileInfo($url);
 
-        if ($baseUrl === null) {
+        if (null === $baseUrl) {
             $filePath = sprintf('%s/%s', $this->indexDirectory, $info->getFilename());
             $filePath = new \SplFileInfo($filePath);
 
             $baseUrl = $info->getPath();
-        }
-        else {
+        } else {
             $fileDir = str_replace(sprintf('%s/', $baseUrl), '', $info->getPath());
             $filePath = sprintf('%s/%s/%s', $this->indexDirectory, $fileDir, $info->getFilename());
             $filePath = new \SplFileInfo($filePath);
         }
 
-        if (is_file($filePath->getPathname()) === false) {
+        if (false === is_file($filePath->getPathname())) {
             return;
         }
 
-        if ($info->getExtension() === 'index') {
+        if ('index' === $info->getExtension()) {
             $content = file_get_contents($filePath->getPathname());
-            if (empty($content) === false) {
+            if (false === empty($content)) {
                 /** @var IndexModel $indexModel */
                 $indexModel = $this->deserialize($content, IndexModel::class, 'xml');
                 $indexModelFilesModel = $indexModel->getFiles();
@@ -118,7 +116,7 @@ class ContentDirectoryProvider
         }
 
         unlink($filePath->getPathname());
-        if (is_readable($filePath->getPath()) && count(scandir($filePath->getPath())) === 2) {
+        if (is_readable($filePath->getPath()) && 2 === count(scandir($filePath->getPath()))) {
             rmdir($filePath->getPath());
         }
     }
@@ -141,5 +139,4 @@ class ContentDirectoryProvider
 
         return rmdir($path);
     }
-
 }

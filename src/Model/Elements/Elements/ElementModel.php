@@ -11,126 +11,57 @@ use App\Model\Elements\Elements\Element\SheetModel;
 use App\Model\Elements\Elements\Element\SpellcastingModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("element")
- */
+#[\AllowDynamicProperties] #[Serializer\XmlRoot('element')]
 class ElementModel
 {
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $name;
 
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $source;
 
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $type;
 
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $id;
 
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     */
+    #[Serializer\XmlAttribute]
     public string $supports;
 
     /**
-     * @var string
-     *
-     * @Serializer\Type("HTML")
+     * @TODO fix html handler.
      */
+    #[Serializer\Type('string')]
     public string $description;
 
-    /**
-     * @var SheetModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\SheetModel")
-     */
+    #[Serializer\Type(SheetModel::class)]
     public SheetModel $sheet;
 
-    /**
-     * @var RulesModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\RulesModel")
-     */
+    #[Serializer\Type(RulesModel::class)]
     public RulesModel $rules;
 
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     */
     public string $requirements;
 
-    /**
-     * @var SettersModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
-     */
+    #[Serializer\Type(SettersModel::class)]
     public SettersModel $setters;
 
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     */
     public string $prerequisite;
 
-    /**
-     * @var CompendiumModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\CompendiumModel")
-     */
+    #[Serializer\Type(CompendiumModel::class)]
     public CompendiumModel $compendium;
 
-    /**
-     * @var SpellcastingModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\SpellcastingModel")
-     */
+    #[Serializer\Type(SpellcastingModel::class)]
     public SpellcastingModel $spellcasting;
 
-    /**
-     * @var MulticlassModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\MulticlassModel")
-     */
+    #[Serializer\Type(MulticlassModel::class)]
     public MulticlassModel $multiclass;
 
-    /**
-     * @var ExtractModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\ExtractModel")
-     * @Serializer\SkipWhenEmpty()
-     */
-    public ExtractModel $extract;
+    #[Serializer\Type(ExtractModel::class)]
+    #[Serializer\SkipWhenEmpty]
+    public ?ExtractModel $extract = null;
 
-    /**
-     * @var SettersModel
-     *
-     * @Serializer\Type("App\Model\Elements\Elements\Element\SettersModel")
-     * @Serializer\SkipWhenEmpty()
-     */
-    public SettersModel $setter;
+    #[Serializer\Type(SettersModel::class)]
+    #[Serializer\SkipWhenEmpty]
+    public ?SettersModel $setter = null;
 }

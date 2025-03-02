@@ -7,13 +7,6 @@
     </info>
     <element name="Player’s Handbook" type="Source" source="Core" id="ID_WOTC_SOURCE_PLAYERS_HANDBOOK">
         <description>
-            <p>An Oathbreaker is a paladin who breaks his or her sacred oaths to pursue some dark ambition or serve an evil power. Whatever light burned in the paladin's heart been extinguished. Only darkness remains.</p>
-            <p class="indent">A paladin must be evil and at least 3rd level to become an Oathbreaker. The paladin replaces the features specific to his or her Sacred Oath with Oathbreaker features.</p>
-            <div element="ID_DMG_ARCHETYPE_FEATURE_OATHBREAKER_OATHBREAKER_SPELLS" />
-            <div element="ID_DMG_ARCHETYPE_FEATURE_OATHBREAKER_CHANNEL_DIVINITY" />
-            <div element="ID_DMG_ARCHETYPE_FEATURE_OATHBREAKER_AURA_OF_HATE" />
-            <div element="ID_DMG_ARCHETYPE_FEATURE_OATHBREAKER_SUPERNATURAL_RESISTANCE" />
-            <div element="ID_DMG_ARCHETYPE_FEATURE_OATHBREAKER_DREAD_LORD" />
         </description>
         <setters>
             <set name="abbreviation">PHB</set>

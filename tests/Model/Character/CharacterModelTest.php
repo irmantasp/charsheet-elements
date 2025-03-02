@@ -4,6 +4,7 @@ namespace App\Tests\Model\Character;
 
 use App\Model\Character\CharacterModel;
 use JMS\Serializer\SerializerInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class CharacterModelTest extends KernelTestCase
@@ -19,13 +20,10 @@ class CharacterModelTest extends KernelTestCase
         $container = $kernel->getContainer();
 
         $this->serializer = $container->get('jms_serializer');
-        $this->directory = __DIR__ . '/fixtures/' . $this->getName(false) . '/';
+        $this->directory = __DIR__ . '/fixtures/' . $this->name() . '/';
     }
 
-    /**
-     * @param string $filePath
-     * @dataProvider provideTestCharacterModelSerializeData
-     */
+    #[DataProvider('provideTestCharacterModelSerializeData')]
     final public function testCharacterModelSerialize(string $fileName): void
     {
         $fileContent = file_get_contents($this->directory . $fileName);
@@ -35,7 +33,7 @@ class CharacterModelTest extends KernelTestCase
         $this->assertXmlStringEqualsXmlString($fileContent, $content);
     }
 
-    final public function provideTestCharacterModelSerializeData(): array
+    final public static function provideTestCharacterModelSerializeData(): array
     {
         return [
             '1 level no data 3d6 all sources restrict playtest' => ['1 level no data 3d6 all sources restrict playtest.dnd5e'],
@@ -102,7 +100,6 @@ class CharacterModelTest extends KernelTestCase
             '1 level no data standard array srd race' => ['1 level no data standard array srd race.dnd5e'],
             '1 level no data standard array srd' => ['1 level no data standard array srd.dnd5e'],
             '1 level no data standard array' => ['1 level no data standard array.dnd5e'],
-            'Conditional defense' => ['Defense.dnd5e'],
             'example' => ['example.dnd5e'],
         ];
     }

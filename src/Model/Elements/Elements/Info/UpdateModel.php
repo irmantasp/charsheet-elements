@@ -5,26 +5,16 @@ namespace App\Model\Elements\Elements\Info;
 use App\Model\Index\Index\Info\Update\FileModel;
 use JMS\Serializer\Annotation as Serializer;
 
-/**
- * @Serializer\XmlRoot("update")
- */
+#[Serializer\XmlRoot('update')]
 class UpdateModel
 {
-
-    /**
-     * @var string
-     *
-     * @Serializer\Type("string")
-     * @Serializer\XmlAttribute()
-     */
+    #[Serializer\XmlAttribute]
     public string $version;
-
 
     /**
      * @var FileModel[]
-     *
-     * @Serializer\Type("array<App\Model\Elements\Elements\Info\Update\FileModel>")
-     * @Serializer\XmlList(inline=true, entry="file")
      */
+    #[Serializer\Type('array<'.Update\FileModel::class.'>')]
+    #[Serializer\XmlList(entry: 'file', inline: true)]
     public array $files;
 }
